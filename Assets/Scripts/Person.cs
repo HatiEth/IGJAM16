@@ -4,9 +4,20 @@ using System.Collections;
 
 public class Person : MonoBehaviour {
 	public Sprite[] FacialExpressions = new Sprite[System.Enum.GetNames(typeof(Faces)).Length];
+	public Font font;
+	[Tooltip("Minimum questions a person may ask")]
+	public int MinQuestionCount = 0;
+	[Tooltip("Maximum amount of questions the person will ask")]
+	public int MaxQuestionCount = 1;
 
+	[ReadOnly]
+	public int QuestionCount = 0;
+
+	[ReadOnly]
 	public Faces RequiredFaceExpression;
+	[ReadOnly]
 	public string Name;
+	[ReadOnly]
 	public bool HasMet;
 
 
@@ -33,10 +44,23 @@ public class Person : MonoBehaviour {
 		onArrival.OnNext(this);
 	}
 
-	public void GenerateExpectedExpression()
+	public void InitiateAskQuestion(Subject<Person> OnQuestionEnd)
+	{
+		MainThreadDispatcher.StartUpdateMicroCoroutine(AskQuestion(OnQuestionEnd));
+	}
+
+	IEnumerator AskQuestion(Subject<Person> OnQuestionEnd)
+	{
+		
+
+		yield return null;
+	}
+
+	public void GeneratePersonMood()
 	{
 		int idxOfFaceExpression = (Random.Range(0, System.Enum.GetNames(typeof(Faces)).Length));
 		RequiredFaceExpression = (Faces)(idxOfFaceExpression);
 		GetComponent<SpriteRenderer>().sprite = FacialExpressions[idxOfFaceExpression];
+		QuestionCount = Random.Range(MinQuestionCount, MaxQuestionCount);
 	}
 }

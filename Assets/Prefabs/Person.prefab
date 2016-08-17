@@ -91,6 +91,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ca2d00116c75d14468aa0f1f4c9f3ef3, type: 3}
   - {fileID: 21300000, guid: 38301556b5fad19439a304a5e2f6c96a, type: 3}
   - {fileID: 21300000, guid: e99222e48d3c4af45915a848fd706c59, type: 3}
+  font: {fileID: 0}
+  MinQuestionCount: 1
+  MaxQuestionCount: 1
+  QuestionCount: 0
   RequiredFaceExpression: 0
   Name: 
   HasMet: 0

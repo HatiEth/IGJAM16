@@ -41,6 +41,8 @@ public class FaceGameState : MonoBehaviour {
 	public Subject<bool> m_MatchedExpression;
 	public Subject<Person> PersonArrived;
 	public Subject<Person> PersonExited;
+	public Subject<Person> PersonQuestions;
+
 	ReactiveCommand SelectedFacialExpression = new ReactiveCommand();
 	private void Awake()
 	{
@@ -48,6 +50,8 @@ public class FaceGameState : MonoBehaviour {
 
 		PersonArrived = new Subject<Person>();
 		PersonExited = new Subject<Person>();
+		PersonQuestions = new Subject<Person>();
+		
 
 		m_MatchedExpression = new Subject<bool>();
 		PartyPeople = new Person[NumberOfPersons];
@@ -57,17 +61,33 @@ public class FaceGameState : MonoBehaviour {
 			PartyPeople[i] = PartyPersonGO.GetComponent<Person>();
 		}
 
-
-		
-
 		PersonArrived.Subscribe((person) =>
 		{
-			m_MatchedExpression.Subscribe(matched =>
+			person.HasMet = true;
+			if (person.QuestionCount > 0) // has question
 			{
-				person.InitiateMoveTo(PersonExitPosition.position, 1.5f, PersonExited);
-			});
-			// @TOOD: Initiate Person Logic
-			
+				// person.AskQuestion();
+				person.InitiateAskQuestion(PersonQuestions);
+			}
+			else
+			{
+				m_MatchedExpression.Subscribe(matched =>
+				{
+					if (matched)
+					{
+						person.InitiateMoveTo(PersonExitPosition.position, 1.5f, PersonExited);
+					}
+					else
+					{
+						person.InitiateMoveTo(PersonExitPosition.position, 2.5f, PersonExited);
+					}
+				});
+				// @TOOD: Initiate Person Logic
+			}
+
+
+
+
 		}).AddTo(this.gameObject);
 
 		PersonExited.Subscribe((person) =>
@@ -92,7 +112,7 @@ public class FaceGameState : MonoBehaviour {
 	public void SelectNextPerson()
 	{
 		CurrentPerson = PartyPeople[Random.Range(0, NumberOfPersons - 1)];
-		CurrentPerson.GenerateExpectedExpression();
+		CurrentPerson.GeneratePersonMood();
 		CurrentPerson.InitiateMoveTo(PersonMidPosition.position, 2.5f, PersonArrived);
 	}
 
@@ -111,8 +131,6 @@ public class FaceGameState : MonoBehaviour {
 		YourCurrentExpression = expression;
 		m_MatchedExpression.OnNext(CalculateFacialExpressions());
 	}
-
-	
 
 	void Update()
 	{
