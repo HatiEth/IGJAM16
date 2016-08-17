@@ -10,6 +10,8 @@ TextureImporter:
     21300006: T_Frame_Circle_BorderThin
     21300008: T_Speechbubble_01
     21300010: T_Speechbubble_Spike_01
+    21300012: T_Clock
+    21300014: T_Clock_Hand
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,10 +61,36 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_Frame_Circle
+      name: T_Clock
       rect:
         serializedVersion: 2
         x: 8
+        y: 1784
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Clock_Hand
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1787
+        width: 247
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Frame_Circle
+      rect:
+        serializedVersion: 2
+        x: 527
         y: 1912
         width: 128
         height: 128
@@ -75,7 +103,7 @@ TextureImporter:
       name: T_Frame_Circle_Border
       rect:
         serializedVersion: 2
-        x: 144
+        x: 663
         y: 1912
         width: 128
         height: 128
@@ -88,7 +116,7 @@ TextureImporter:
       name: T_Frame_Circle_BorderThin
       rect:
         serializedVersion: 2
-        x: 280
+        x: 799
         y: 2008
         width: 32
         height: 32
@@ -101,7 +129,7 @@ TextureImporter:
       name: T_Frame_Square
       rect:
         serializedVersion: 2
-        x: 320
+        x: 839
         y: 1912
         width: 128
         height: 128
@@ -114,7 +142,7 @@ TextureImporter:
       name: T_Speechbubble_01
       rect:
         serializedVersion: 2
-        x: 456
+        x: 975
         y: 1984
         width: 128
         height: 56
@@ -127,7 +155,7 @@ TextureImporter:
       name: T_Speechbubble_Spike_01
       rect:
         serializedVersion: 2
-        x: 592
+        x: 1111
         y: 1965
         width: 61
         height: 75
