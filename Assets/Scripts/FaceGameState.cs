@@ -15,7 +15,10 @@ public class FaceGameState : MonoBehaviour {
 	public GameObject PersonPrefab;
 	[Tooltip("Total number of other persons on party")]
 	public int NumberOfPersons = 7;
+	
+
 	public Person[] PartyPeople;
+
 
 	public Person CurrentPerson;
 
