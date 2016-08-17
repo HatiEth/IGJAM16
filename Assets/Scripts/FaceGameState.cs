@@ -64,30 +64,23 @@ public class FaceGameState : MonoBehaviour {
 		PersonArrived.Subscribe((person) =>
 		{
 			person.HasMet = true;
-			if (person.QuestionCount > 0) // has question
+			m_MatchedExpression.Subscribe(matched =>
 			{
-				// person.AskQuestion();
-				person.InitiateAskQuestion(PersonQuestions);
-			}
-			else
-			{
-				m_MatchedExpression.Subscribe(matched =>
+				if(person.QuestionCount > 0)
 				{
-					if (matched)
-					{
-						person.InitiateMoveTo(PersonExitPosition.position, 1.5f, PersonExited);
-					}
-					else
-					{
-						person.InitiateMoveTo(PersonExitPosition.position, 2.5f, PersonExited);
-					}
-				});
-				// @TOOD: Initiate Person Logic
-			}
+					person.InitiateAskQuestion(PersonQuestions);
+				}
+				else
+				{
+					person.InitiateMoveTo(PersonExitPosition.position, 1.5f, PersonExited);
+				}
+				
+			});
+		}).AddTo(this.gameObject);
 
-
-
-
+		PersonQuestions.Subscribe(person =>
+		{
+			person.InitiateMoveTo(PersonExitPosition.position, 1.5f, PersonExited);
 		}).AddTo(this.gameObject);
 
 		PersonExited.Subscribe((person) =>

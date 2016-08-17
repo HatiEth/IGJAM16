@@ -20,6 +20,12 @@ public class Person : MonoBehaviour {
 	[ReadOnly]
 	public bool HasMet;
 
+	PersonsTextBubble TextBubble;
+
+	void Start()
+	{
+		TextBubble = FindObjectOfType<PersonsTextBubble>();
+	}
 
 	public void InitiateMoveTo(Vector3 target, float travelTime, Subject<Person> onArrival)
 	{
@@ -51,9 +57,12 @@ public class Person : MonoBehaviour {
 
 	IEnumerator AskQuestion(Subject<Person> OnQuestionEnd)
 	{
-		
+		TextBubble.StartText("asdkjasndjasbduasjknfhasbklfa ahdbasjdbasuzdkbas abhsdnasdjnabshj bjaskdnasalnsdkasl najsdbasdbka hsfbsajf sad");
 
 		yield return null;
+
+		OnQuestionEnd.OnNext(this);
+
 	}
 
 	public void GeneratePersonMood()

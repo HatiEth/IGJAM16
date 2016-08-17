@@ -27,8 +27,10 @@ public class Textwriter : MonoBehaviour {
 		writerData.Capacity = TargetText.Length;
 	}
 
-	void Start()
+	public void StartText(string text)
 	{
+		writerData.Clear();
+		TargetText = text;
 		MainThreadDispatcher.StartUpdateMicroCoroutine(WriteText());
 	}
 
@@ -69,8 +71,4 @@ public class Textwriter : MonoBehaviour {
 			timeTillNextLetter -= Time.deltaTime;
 		}
 	}
-
-	// Lerp down from <size=[32]>L</size> to <size=[16]>L</size> over [1] Second
-
-
 }
