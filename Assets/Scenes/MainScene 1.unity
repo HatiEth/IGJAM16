@@ -794,6 +794,7 @@ GameObject:
   - 224: {fileID: 719551715}
   - 222: {fileID: 719551718}
   - 114: {fileID: 719551717}
+  - 114: {fileID: 719551719}
   - 114: {fileID: 719551716}
   m_Layer: 5
   m_Name: Text
@@ -851,7 +852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -879,6 +880,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719551714}
+--- !u!114 &719551719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 719551714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372ba3ce7a5e61449b3f47e05055c150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetText: 'Hello i am a person. This is a very cool question or statement, for
+    example: my dog died last month! nbtpznsabetnrliesutiarhesutesutianrsetu irn uidarengenudiane
+    iarnegline dinrae iaesudie iae rianelgine diarne glien iaen penis'
+  StartScale: 24
+  ScaleDownTimeS: 0.4
+  SecondsPerLetter: 0.05
 --- !u!1 &820712308
 GameObject:
   m_ObjectHideFlags: 0
