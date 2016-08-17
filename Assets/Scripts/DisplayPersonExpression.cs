@@ -13,6 +13,6 @@ public class DisplayPersonExpression : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<Text>().text = "" + m_FaceGameState.PersonExpectedExpression;
+		GetComponent<Text>().text = "" + m_FaceGameState.CurrentPerson.RequiredFaceExpression;
 	}
 }
