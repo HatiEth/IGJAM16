@@ -14,6 +14,8 @@ public class SelectExpressionButton : MonoBehaviour {
 	void Start () {
 		m_FaceGame = FindObjectOfType<FaceGameState>();
 
+		GetComponent<Image>().color = m_FaceGame.FacialExpressionColors[(int)Expression];
+
 		GetComponent<Button>().OnClickAsObservable().Subscribe((_) =>
 		{
 			m_FaceGame.SelectYourExpression(Expression);

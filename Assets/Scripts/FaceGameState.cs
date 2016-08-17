@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class FaceGameState : MonoBehaviour {
-
+	public Color[] FacialExpressionColors = new Color[System.Enum.GetNames(typeof(Faces)).Length];
 	private CompositeDisposable _disposeables = new CompositeDisposable();
 
 	public Transform PersonStartPosition;
