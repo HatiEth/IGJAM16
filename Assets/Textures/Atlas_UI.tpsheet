@@ -4,16 +4,18 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:30a0d6e6a21b84cc6efb948ac71a7c7f:edef287b3cc187a601cd2d7328e5bcbf:e49dd72120e945268d57c6bd1c7cf95e$
+# $TexturePacker:SmartUpdate:37b00f8d226eb2dddd2c3b183c27623a:3bc9e6c657438ad55853348d393ea7d5:e49dd72120e945268d57c6bd1c7cf95e$
 #
 :format=40000
 :texture=Atlas_UI.png
 :size=2048x2048
 :pivotpoints=enabled
 
-T_Frame_Circle;8;1912;128;128;0.5;0.5
-T_Frame_Circle_Border;144;1912;128;128;0.5;0.5
-T_Frame_Circle_BorderThin;280;2008;32;32;0.5;0.5
-T_Frame_Square;320;1912;128;128;0.5;0.5
-T_Speechbubble_01;456;1984;128;56;0.5;0.5
-T_Speechbubble_Spike_01;592;1965;61;75;0.5;0.5
+T_Clock;8;1784;256;256;0.5;0.5
+T_Clock_Hand;272;1787;247;253;0.5;0.5
+T_Frame_Circle;527;1912;128;128;0.5;0.5
+T_Frame_Circle_Border;663;1912;128;128;0.5;0.5
+T_Frame_Circle_BorderThin;799;2008;32;32;0.5;0.5
+T_Frame_Square;839;1912;128;128;0.5;0.5
+T_Speechbubble_01;975;1984;128;56;0.5;0.5
+T_Speechbubble_Spike_01;1111;1965;61;75;0.5;0.5
