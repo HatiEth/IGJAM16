@@ -52,8 +52,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1faf28eaf8c427c4a9a0221305233cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FacialExpressions:
+  - {fileID: 21300000, guid: ccb090f99670243489ac86dbb271ac71, type: 3}
+  - {fileID: 21300000, guid: 338a63d9183f83444bfcaf327202c5ad, type: 3}
+  - {fileID: 21300000, guid: 859246c1d436bf64c83cfeb60127568a, type: 3}
+  - {fileID: 21300000, guid: 60c1d327f12b6bb4094d5f6954350c69, type: 3}
+  - {fileID: 21300000, guid: 71e1001ba9853944f86e9da439e0a1c0, type: 3}
+  - {fileID: 21300000, guid: ca2d00116c75d14468aa0f1f4c9f3ef3, type: 3}
+  - {fileID: 21300000, guid: 38301556b5fad19439a304a5e2f6c96a, type: 3}
+  - {fileID: 21300000, guid: e99222e48d3c4af45915a848fd706c59, type: 3}
   RequiredFaceExpression: 0
   Name: 
+  HasMet: 0
 --- !u!212 &212000012590580218
 SpriteRenderer:
   m_ObjectHideFlags: 1

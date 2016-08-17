@@ -38,7 +38,7 @@ public class FaceGameState : MonoBehaviour {
 	public Subject<bool> m_MatchedExpression;
 	public Subject<Person> PersonArrived;
 	public Subject<Person> PersonExited;
-
+	ReactiveCommand SelectedFacialExpression = new ReactiveCommand();
 	private void Awake()
 	{
 		m_pPartyTimerS = new ReactiveProperty<float>(PartyTimeSeconds);
@@ -54,11 +54,17 @@ public class FaceGameState : MonoBehaviour {
 			PartyPeople[i] = PartyPersonGO.GetComponent<Person>();
 		}
 
+
+		
+
 		PersonArrived.Subscribe((person) =>
 		{
+			m_MatchedExpression.Subscribe(matched =>
+			{
+				person.InitiateMoveTo(PersonExitPosition.position, 1.5f, PersonExited);
+			});
 			// @TOOD: Initiate Person Logic
-
-			person.InitiateMoveTo(PersonExitPosition.position, 1.5f, PersonExited);
+			
 		}).AddTo(this.gameObject);
 
 		PersonExited.Subscribe((person) =>
@@ -75,7 +81,6 @@ public class FaceGameState : MonoBehaviour {
 
 		m_MatchedExpression.Subscribe((gotItRight) =>
 		{
-			GenerateExpectedExpression();
 		}).AddTo(_disposeables);
 
 		SelectNextPerson();
@@ -84,8 +89,7 @@ public class FaceGameState : MonoBehaviour {
 	public void SelectNextPerson()
 	{
 		CurrentPerson = PartyPeople[Random.Range(0, NumberOfPersons - 1)];
-		GenerateExpectedExpression();
-
+		CurrentPerson.GenerateExpectedExpression();
 		CurrentPerson.InitiateMoveTo(PersonMidPosition.position, 2.5f, PersonArrived);
 	}
 
@@ -105,10 +109,7 @@ public class FaceGameState : MonoBehaviour {
 		m_MatchedExpression.OnNext(CalculateFacialExpressions());
 	}
 
-	public void GenerateExpectedExpression()
-	{
-		CurrentPerson.RequiredFaceExpression = (Faces)(Random.Range(0, System.Enum.GetNames(typeof(Faces)).Length));
-	}
+	
 
 	void Update()
 	{
