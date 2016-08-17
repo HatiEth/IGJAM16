@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 96dd19fb3f1fa1d458012100275dc37d
-timeCreated: 1471461565
+timeCreated: 1471465165
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,8 @@ TextureImporter:
     21300002: T_Frame_Square
     21300004: T_Frame_Circle_Border
     21300006: T_Frame_Circle_BorderThin
+    21300008: T_Speechbubble_01
+    21300010: T_Speechbubble_Spike_01
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -106,6 +108,32 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 64, y: 64, z: 64, w: 64}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Speechbubble_01
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1984
+        width: 128
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 44, y: 25, z: 39, w: 17}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Speechbubble_Spike_01
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 1965
+        width: 61
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     outline: []
