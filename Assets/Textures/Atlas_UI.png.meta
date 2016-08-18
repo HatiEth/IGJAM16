@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 96dd19fb3f1fa1d458012100275dc37d
-timeCreated: 1471540278
+timeCreated: 1471513382
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -53,21 +53,6 @@ TextureImporter:
     21300092: Faces-T_Player_Face_Angry_00
     21300094: Faces-T_Player_Face_Fear_00
     21300096: T_GF_Head_00white
-    21300098: T_Face_Happy_01
-    21300100: T_Face_Happy_02
-    21300102: T_Face_Happy_03
-    21300104: T_Face_Happy_04
-    21300106: T_Face_Happy_05
-    21300108: T_Face_Happy_06
-    21300110: T_Face_Happy_07
-    21300112: T_Face_Happy_08
-    21300114: T_Frame_Square_Border4px
-    21300116: T_Hair_02
-    21300118: T_Hair_03
-    21300120: T_Hair_04
-    21300122: T_Hair_05
-    21300124: T_Speechbubble_02
-    21300126: T_Speechbubble_Spike_02
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -120,7 +105,7 @@ TextureImporter:
       name: Faces-T_GF_Face_Angry_00
       rect:
         serializedVersion: 2
-        x: 3740
+        x: 1553
         y: 3848
         width: 258
         height: 240
@@ -133,8 +118,8 @@ TextureImporter:
       name: Faces-T_GF_Face_Fear_00
       rect:
         serializedVersion: 2
-        x: 1604
-        y: 3584
+        x: 2351
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -146,8 +131,8 @@ TextureImporter:
       name: Faces-T_GF_Face_Happy_00
       rect:
         serializedVersion: 2
-        x: 2136
-        y: 3584
+        x: 2883
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -159,8 +144,8 @@ TextureImporter:
       name: Faces-T_GF_Face_Neutral_00
       rect:
         serializedVersion: 2
-        x: 1870
-        y: 3584
+        x: 3681
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -172,8 +157,8 @@ TextureImporter:
       name: Faces-T_GF_Face_Sad_00
       rect:
         serializedVersion: 2
-        x: 1338
-        y: 3584
+        x: 3149
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -185,8 +170,8 @@ TextureImporter:
       name: Faces-T_GF_Face_Surprise_00
       rect:
         serializedVersion: 2
-        x: 1072
-        y: 3584
+        x: 2617
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -198,8 +183,8 @@ TextureImporter:
       name: Faces-T_Player_Face_Angry_00
       rect:
         serializedVersion: 2
-        x: 274
-        y: 3584
+        x: 2085
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -211,8 +196,8 @@ TextureImporter:
       name: Faces-T_Player_Face_Fear_00
       rect:
         serializedVersion: 2
-        x: 806
-        y: 3584
+        x: 1287
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -224,8 +209,8 @@ TextureImporter:
       name: Faces-T_Player_Face_Happy_00
       rect:
         serializedVersion: 2
-        x: 540
-        y: 3584
+        x: 1819
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -237,8 +222,8 @@ TextureImporter:
       name: Faces-T_Player_Face_Neutral_00
       rect:
         serializedVersion: 2
-        x: 8
-        y: 3584
+        x: 1021
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -250,8 +235,8 @@ TextureImporter:
       name: Faces-T_Player_Face_Sad_00
       rect:
         serializedVersion: 2
-        x: 2668
-        y: 3584
+        x: 3415
+        y: 3848
         width: 258
         height: 240
       alignment: 0
@@ -263,8 +248,8 @@ TextureImporter:
       name: Faces-T_Player_Face_Surprised_00
       rect:
         serializedVersion: 2
-        x: 2934
-        y: 3584
+        x: 8
+        y: 3600
         width: 258
         height: 240
       alignment: 0
@@ -276,8 +261,8 @@ TextureImporter:
       name: T_Body_Striped_00
       rect:
         serializedVersion: 2
-        x: 2443
-        y: 2673
+        x: 3303
+        y: 2414
         width: 651
         height: 538
       alignment: 0
@@ -289,8 +274,8 @@ TextureImporter:
       name: T_Body_Suit_00
       rect:
         serializedVersion: 2
-        x: 3303
-        y: 2127
+        x: 1985
+        y: 2414
         width: 651
         height: 538
       alignment: 0
@@ -302,8 +287,8 @@ TextureImporter:
       name: T_Body_Tatoo_00
       rect:
         serializedVersion: 2
-        x: 8
-        y: 2127
+        x: 667
+        y: 2414
         width: 651
         height: 538
       alignment: 0
@@ -315,8 +300,8 @@ TextureImporter:
       name: T_Body_Tshirt_00
       rect:
         serializedVersion: 2
-        x: 667
-        y: 2127
+        x: 8
+        y: 2414
         width: 651
         height: 538
       alignment: 0
@@ -329,7 +314,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1326
-        y: 2127
+        y: 2414
         width: 651
         height: 538
       alignment: 0
@@ -341,8 +326,8 @@ TextureImporter:
       name: T_Body_UglyShirt_00
       rect:
         serializedVersion: 2
-        x: 3102
-        y: 2673
+        x: 3098
+        y: 2960
         width: 651
         height: 538
       alignment: 0
@@ -354,8 +339,8 @@ TextureImporter:
       name: T_Clock
       rect:
         serializedVersion: 2
-        x: 1348
-        y: 3832
+        x: 1061
+        y: 3584
         width: 256
         height: 256
       alignment: 0
@@ -367,8 +352,8 @@ TextureImporter:
       name: T_Clock_Hand
       rect:
         serializedVersion: 2
-        x: 1093
-        y: 3835
+        x: 806
+        y: 3587
         width: 247
         height: 253
       alignment: 0
@@ -380,112 +365,8 @@ TextureImporter:
       name: T_Face_Happy_00
       rect:
         serializedVersion: 2
-        x: 3200
-        y: 3584
-        width: 258
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Face_Happy_01
-      rect:
-        serializedVersion: 2
-        x: 2402
-        y: 3584
-        width: 258
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Face_Happy_02
-      rect:
-        serializedVersion: 2
-        x: 2676
-        y: 3848
-        width: 258
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Face_Happy_03
-      rect:
-        serializedVersion: 2
-        x: 1878
-        y: 3848
-        width: 258
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Face_Happy_04
-      rect:
-        serializedVersion: 2
-        x: 1612
-        y: 3848
-        width: 258
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Face_Happy_05
-      rect:
-        serializedVersion: 2
-        x: 2144
-        y: 3848
-        width: 258
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Face_Happy_06
-      rect:
-        serializedVersion: 2
-        x: 3208
-        y: 3848
-        width: 258
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Face_Happy_07
-      rect:
-        serializedVersion: 2
-        x: 3474
-        y: 3848
-        width: 258
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Face_Happy_08
-      rect:
-        serializedVersion: 2
-        x: 2942
-        y: 3848
+        x: 540
+        y: 3600
         width: 258
         height: 240
       alignment: 0
@@ -497,8 +378,8 @@ TextureImporter:
       name: T_Face_Surprised_00
       rect:
         serializedVersion: 2
-        x: 2410
-        y: 3848
+        x: 274
+        y: 3600
         width: 258
         height: 240
       alignment: 0
@@ -510,7 +391,7 @@ TextureImporter:
       name: T_Frame_Circle
       rect:
         serializedVersion: 2
-        x: 549
+        x: 749
         y: 3960
         width: 128
         height: 128
@@ -523,7 +404,7 @@ TextureImporter:
       name: T_Frame_Circle_Border
       rect:
         serializedVersion: 2
-        x: 685
+        x: 885
         y: 3960
         width: 128
         height: 128
@@ -536,7 +417,7 @@ TextureImporter:
       name: T_Frame_Circle_Border2px
       rect:
         serializedVersion: 2
-        x: 477
+        x: 184
         y: 4024
         width: 64
         height: 64
@@ -549,7 +430,7 @@ TextureImporter:
       name: T_Frame_Circle_Border4px
       rect:
         serializedVersion: 2
-        x: 405
+        x: 400
         y: 4024
         width: 64
         height: 64
@@ -575,7 +456,7 @@ TextureImporter:
       name: T_Frame_Square
       rect:
         serializedVersion: 2
-        x: 821
+        x: 613
         y: 3960
         width: 128
         height: 128
@@ -585,23 +466,10 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: T_Frame_Square_Border4px
-      rect:
-        serializedVersion: 2
-        x: 117
-        y: 4024
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 32, y: 32, z: 32, w: 32}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
       name: T_Frame_Square_Border8px
       rect:
         serializedVersion: 2
-        x: 189
+        x: 256
         y: 4024
         width: 64
         height: 64
@@ -614,7 +482,7 @@ TextureImporter:
       name: T_Frame_Square_Rounded10px
       rect:
         serializedVersion: 2
-        x: 261
+        x: 472
         y: 4024
         width: 64
         height: 64
@@ -627,7 +495,7 @@ TextureImporter:
       name: T_Frame_Square_Rounded20px
       rect:
         serializedVersion: 2
-        x: 333
+        x: 328
         y: 4024
         width: 64
         height: 64
@@ -641,7 +509,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2644
-        y: 2127
+        y: 2414
         width: 651
         height: 538
       alignment: 0
@@ -653,8 +521,8 @@ TextureImporter:
       name: T_GF_Hair_00
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 2699
+        x: 1919
+        y: 2986
         width: 512
         height: 512
       alignment: 0
@@ -666,8 +534,8 @@ TextureImporter:
       name: T_GF_Head_00
       rect:
         serializedVersion: 2
-        x: 1923
-        y: 2699
+        x: 359
+        y: 2986
         width: 512
         height: 512
       alignment: 0
@@ -679,8 +547,8 @@ TextureImporter:
       name: T_GF_Head_00white
       rect:
         serializedVersion: 2
-        x: 363
-        y: 2699
+        x: 1399
+        y: 2986
         width: 512
         height: 512
       alignment: 0
@@ -692,8 +560,8 @@ TextureImporter:
       name: T_Hair_00
       rect:
         serializedVersion: 2
-        x: 8
-        y: 2902
+        x: 2035
+        y: 3531
         width: 347
         height: 309
       alignment: 0
@@ -705,60 +573,8 @@ TextureImporter:
       name: T_Hair_01
       rect:
         serializedVersion: 2
-        x: 3538
-        y: 3244
-        width: 347
-        height: 309
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Hair_02
-      rect:
-        serializedVersion: 2
-        x: 3183
-        y: 3244
-        width: 347
-        height: 309
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Hair_03
-      rect:
-        serializedVersion: 2
-        x: 1763
-        y: 3244
-        width: 347
-        height: 309
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Hair_04
-      rect:
-        serializedVersion: 2
-        x: 2118
-        y: 3244
-        width: 347
-        height: 309
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Hair_05
-      rect:
-        serializedVersion: 2
-        x: 2828
-        y: 3244
+        x: 1325
+        y: 3531
         width: 347
         height: 309
       alignment: 0
@@ -770,8 +586,8 @@ TextureImporter:
       name: T_Head_00
       rect:
         serializedVersion: 2
-        x: 710
-        y: 3219
+        x: 8
+        y: 3164
         width: 343
         height: 334
       alignment: 0
@@ -783,8 +599,8 @@ TextureImporter:
       name: T_Head_01
       rect:
         serializedVersion: 2
-        x: 8
-        y: 3219
+        x: 2390
+        y: 3506
         width: 343
         height: 334
       alignment: 0
@@ -796,8 +612,8 @@ TextureImporter:
       name: T_Head_02
       rect:
         serializedVersion: 2
-        x: 359
-        y: 3219
+        x: 3092
+        y: 3506
         width: 343
         height: 334
       alignment: 0
@@ -809,8 +625,8 @@ TextureImporter:
       name: T_Head_03
       rect:
         serializedVersion: 2
-        x: 1061
-        y: 3219
+        x: 3443
+        y: 3506
         width: 343
         height: 334
       alignment: 0
@@ -822,8 +638,8 @@ TextureImporter:
       name: T_Head_05
       rect:
         serializedVersion: 2
-        x: 1412
-        y: 3219
+        x: 2741
+        y: 3506
         width: 343
         height: 334
       alignment: 0
@@ -835,8 +651,8 @@ TextureImporter:
       name: T_Player_Body_00
       rect:
         serializedVersion: 2
-        x: 1985
-        y: 2127
+        x: 2439
+        y: 2960
         width: 651
         height: 538
       alignment: 0
@@ -848,8 +664,8 @@ TextureImporter:
       name: T_Player_Hair_00
       rect:
         serializedVersion: 2
-        x: 2473
-        y: 3244
+        x: 1680
+        y: 3531
         width: 347
         height: 309
       alignment: 0
@@ -861,8 +677,8 @@ TextureImporter:
       name: T_Player_Head_00
       rect:
         serializedVersion: 2
-        x: 883
-        y: 2699
+        x: 879
+        y: 2986
         width: 512
         height: 512
       alignment: 0
@@ -874,7 +690,7 @@ TextureImporter:
       name: T_Speechbubble_01
       rect:
         serializedVersion: 2
-        x: 957
+        x: 48
         y: 4032
         width: 128
         height: 56
@@ -884,39 +700,13 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: T_Speechbubble_02
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 1604
-        width: 1163
-        height: 515
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
       name: T_Speechbubble_Spike_01
       rect:
         serializedVersion: 2
-        x: 48
+        x: 544
         y: 4013
         width: 61
         height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: T_Speechbubble_Spike_02
-      rect:
-        serializedVersion: 2
-        x: 3466
-        y: 3561
-        width: 275
-        height: 263
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

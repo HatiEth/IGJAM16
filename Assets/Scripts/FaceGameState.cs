@@ -22,11 +22,7 @@ public class FaceGameState : MonoBehaviour {
 	public GameObject PersonPrefab;
 	[Tooltip("Total number of other persons on party")]
 	public int NumberOfPersons = 7;
-
-	private AudioSource m_ASource;
-	public AudioClip SFX_Scored;
-	public AudioClip SFX_Failed;
-	public AudioClip SFX_Selected;
+	
 
 	[ReadOnly]
 	public Faces[] AssociatedFaces = new Faces[System.Enum.GetNames(typeof(BodyTypes)).Length];
@@ -73,7 +69,6 @@ public class FaceGameState : MonoBehaviour {
 
 	private void Awake()
 	{
-		m_ASource = GetComponent<AudioSource>();
 		m_pPartyTimerS = new ReactiveProperty<float>(PartyTimeSeconds);
 
 		GeneratedAssociatedFaces();
@@ -88,11 +83,6 @@ public class FaceGameState : MonoBehaviour {
 
 			PartyPeople[i].GenerateByTypes(AssociatedFaces[i], (BodyTypes)(i));
 		}
-
-		MessageBroker.Default.Receive<PlayerChoosedExpression>().Subscribe(msg =>
-		{
-			m_ASource.PlayOneShot(SFX_Selected);
-		}).AddTo(this.gameObject);
 	}
 
 	Subject<Person> PersonStream = new Subject<Person>();
@@ -108,15 +98,10 @@ public class FaceGameState : MonoBehaviour {
 			.Do((_) => p.HasMet = true)
 			.Do(expr =>
 			{
+				Debug.Log(expr);
 				if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
 				{
 					// @TODO: Score here, Calculate Sweetspot
-					m_ASource.PlayOneShot(SFX_Scored);
-				}
-				else
-				{
-					ScreenShakeService.Instance.Amplify(0.3f);
-					m_ASource.PlayOneShot(SFX_Failed);
 				}
 			})
 			.Select(_ => p)
