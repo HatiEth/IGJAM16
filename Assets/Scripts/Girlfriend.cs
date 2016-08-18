@@ -16,32 +16,30 @@ public class Girlfriend : MonoBehaviour {
 	public AnimationCurve FadingCurve;
 	public float FadeDuration = 0.2f;
 
+	private HashSet<Faces> ExpressionTypes = new HashSet<Faces>();
+
+	bool HasMetType(Person p)
+	{
+		return ExpressionTypes.Contains(p.RequiredFaceExpression);
+	}
+
 	void Start()
 	{
-		foreach(var toggle in Togglables)
-		{
-			toggle.enabled = false;
-		}
+		UI_TransformRoot.gameObject.SetActive(false);
 
 		MessageBroker.Default.Receive<PersonReady>().Subscribe(msg =>
 		{
-			if (!msg.Person.HasMet)
+			if (!HasMetType(msg.Person))
 			{
-				foreach (var toggle in Togglables)
-				{
-					toggle.enabled = true;
-					StartCoroutine(FadeIn(FadeDuration));
-				}
+				ExpressionTypes.Add(msg.Person.RequiredFaceExpression);
+
+				UI_TransformRoot.gameObject.SetActive(true);
+				StartCoroutine(FadeIn(FadeDuration));
 				GirlfriendFacialSpriteRenderer.sprite = FacialExpressions[(int)msg.Person.RequiredFaceExpression];
-				
 			}
 			else
 			{
-				foreach (var toggle in Togglables)
-				{
-					toggle.enabled = false;
-					StartCoroutine(FadeOut(FadeDuration));
-				}
+				StartCoroutine(FadeOut(FadeDuration));
 			}
 
 		}).AddTo(this.gameObject);
@@ -71,5 +69,6 @@ public class Girlfriend : MonoBehaviour {
 			yield return null;
 			AlphaTime -= Time.deltaTime;
 		}
+		UI_TransformRoot.gameObject.SetActive(false);
 	}
 }

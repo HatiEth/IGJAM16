@@ -15,13 +15,19 @@ public class FaceGameState : MonoBehaviour {
 	public Transform PersonMidPosition;
 	public Transform PersonExitPosition;
 
+	public float HeartMeterStart;
+	public ReactiveProperty<float> m_pHeartMeter;
+	public float HeartMeter { get { return m_pHeartMeter.Value; } set { m_pHeartMeter.Value = value; } }
+
 	public GameObject PersonPrefab;
 	[Tooltip("Total number of other persons on party")]
 	public int NumberOfPersons = 7;
 	
 
+	[ReadOnly]
+	public Faces[] AssociatedFaces = new Faces[System.Enum.GetNames(typeof(BodyTypes)).Length];
+	[ReadOnly]
 	public Person[] PartyPeople;
-
 
 	public Person CurrentPerson;
 
@@ -43,16 +49,39 @@ public class FaceGameState : MonoBehaviour {
 	public Subject<Person> PersonExited;
 	public Subject<Person> PersonQuestions;
 
-	ReactiveCommand SelectedFacialExpression = new ReactiveCommand();
+
+	private void GeneratedAssociatedFaces()
+	{
+		var EnumValues = System.Enum.GetValues(typeof(Faces));
+		List<Faces> EnumValuesInt = new List<Faces>(EnumValues.OfType<Faces>());
+
+		for(int i=0;i<AssociatedFaces.Length;++i)
+		{
+			if(EnumValuesInt.Count == 0)
+			{
+				EnumValuesInt = new List<Faces>(EnumValues.OfType<Faces>());
+			}
+			int randIdx = Random.Range(0, EnumValuesInt.Count - 1);
+			AssociatedFaces[i] = EnumValuesInt.ElementAt(randIdx);
+			EnumValuesInt.RemoveAt(randIdx);
+		}
+	}
+
 	private void Awake()
 	{
 		m_pPartyTimerS = new ReactiveProperty<float>(PartyTimeSeconds);
-		
+
+		GeneratedAssociatedFaces();
+
+
 		PartyPeople = new Person[NumberOfPersons];
 		for(int i=0;i<NumberOfPersons;++i)
 		{
 			var PartyPersonGO = GameObject.Instantiate(PersonPrefab, PersonStartPosition.position, Quaternion.identity) as GameObject;
 			PartyPeople[i] = PartyPersonGO.GetComponent<Person>();
+			//@TODO Proper randomize
+
+			PartyPeople[i].GenerateByTypes(AssociatedFaces[i], (BodyTypes)(i));
 		}
 	}
 
@@ -60,9 +89,11 @@ public class FaceGameState : MonoBehaviour {
 
 	private IObservable<Person> GeneratePersonObservable(Person p)
 	{
-		return Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonMidPosition.position, 1.5f, observer, cancelToken))
+		
+		return Observable.Timer(System.TimeSpan.FromSeconds(0.2)).AsUnitObservable()
 			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
-			.SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())
+			.Do((_) => MainThreadDispatcher.StartUpdateMicroCoroutine(CurrentPerson.MoveTo(this.PersonExitPosition.position, 2.5f)))
+			.SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())	// wait for player
 			.First()
 			.Do((_) => p.HasMet = true)
 			.Do(expr =>
@@ -70,13 +101,11 @@ public class FaceGameState : MonoBehaviour {
 				Debug.Log(expr);
 				if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
 				{
-					// @TODO: Score here
+					// @TODO: Score here, Calculate Sweetspot
 				}
 			})
 			.Select(_ => p)
 			// @TODO: Start Question observable
-			.SelectMany(Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 1.5f, observer, cancelToken)))
-			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
 			.Select(_ => p)
 			;
 	}
