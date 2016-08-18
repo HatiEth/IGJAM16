@@ -152,8 +152,7 @@ MonoBehaviour:
   PersonExitPosition: {fileID: 4000014001058498}
   PersonPrefab: {fileID: 1000012734669510, guid: de242c5c9dc3b194eab5c57af6b8da43,
     type: 2}
-  NumberOfPersons: 1
+  NumberOfPersons: 5
   PartyPeople: []
   CurrentPerson: {fileID: 0}
-  YourCurrentExpression: 0
   PartyTimeSeconds: 180
