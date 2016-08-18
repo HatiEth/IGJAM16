@@ -18,11 +18,7 @@ public class FaceGameState : MonoBehaviour {
 	public GameObject PersonPrefab;
 	[Tooltip("Total number of other persons on party")]
 	public int NumberOfPersons = 7;
-
-	private AudioSource m_ASource;
-	public AudioClip SFX_Scored;
-	public AudioClip SFX_Failed;
-	public AudioClip SFX_Selected;
+	
 
 	public Person[] PartyPeople;
 
@@ -50,7 +46,6 @@ public class FaceGameState : MonoBehaviour {
 	ReactiveCommand SelectedFacialExpression = new ReactiveCommand();
 	private void Awake()
 	{
-		m_ASource = GetComponent<AudioSource>();
 		m_pPartyTimerS = new ReactiveProperty<float>(PartyTimeSeconds);
 		
 		PartyPeople = new Person[NumberOfPersons];
@@ -59,11 +54,6 @@ public class FaceGameState : MonoBehaviour {
 			var PartyPersonGO = GameObject.Instantiate(PersonPrefab, PersonStartPosition.position, Quaternion.identity) as GameObject;
 			PartyPeople[i] = PartyPersonGO.GetComponent<Person>();
 		}
-
-		MessageBroker.Default.Receive<PlayerChoosedExpression>().Subscribe(msg =>
-		{
-			m_ASource.PlayOneShot(SFX_Selected);
-		}).AddTo(this.gameObject);
 	}
 
 	Subject<Person> PersonStream = new Subject<Person>();
@@ -77,15 +67,10 @@ public class FaceGameState : MonoBehaviour {
 			.Do((_) => p.HasMet = true)
 			.Do(expr =>
 			{
+				Debug.Log(expr);
 				if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
 				{
 					// @TODO: Score here
-					m_ASource.PlayOneShot(SFX_Scored);
-				}
-				else
-				{
-					ScreenShakeService.Instance.Amplify(0.3f);
-					m_ASource.PlayOneShot(SFX_Failed);
 				}
 			})
 			.Select(_ => p)
