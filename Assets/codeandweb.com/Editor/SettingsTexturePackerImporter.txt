@@ -3,9 +3,12 @@ importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
 - Assets/Textures/Atlas_UI.tpsheet
+- Assets/Textures/Atlas_UI_point.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Textures/Atlas_UI.png
+- Assets/Textures/Atlas_UI_point.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 - 
