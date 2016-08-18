@@ -191,18 +191,33 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: -0.99522215
-      outSlope: -0.99522215
+      inSlope: 3.7743359
+      outSlope: 3.7743359
+      tangentMode: 0
+    - time: 0.190077
+      value: -0.0031926907
+      inSlope: 0.016064726
+      outSlope: 0.016064726
+      tangentMode: 0
+    - time: 0.6564506
+      value: 0.98397434
+      inSlope: -3.507822
+      outSlope: -3.507822
+      tangentMode: 0
+    - time: 0.8143001
+      value: 0.99558824
+      inSlope: -2.9397438
+      outSlope: -2.9397438
       tangentMode: 0
     - time: 1
       value: 1
-      inSlope: -0.8968743
-      outSlope: -0.8968743
+      inSlope: -1.6364907
+      outSlope: -1.6364907
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  FadeDuration: 0.2
+  FadeDuration: 0.8
 --- !u!212 &212000010321013260
 SpriteRenderer:
   m_ObjectHideFlags: 1
