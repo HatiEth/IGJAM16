@@ -24,17 +24,23 @@ public class Person : MonoBehaviour {
 
 	void Start()
 	{
+		int idxOfFaceExpression = (Random.Range(0, System.Enum.GetNames(typeof(Faces)).Length));
+		RequiredFaceExpression = (Faces)(idxOfFaceExpression);
+		GetComponent<SpriteRenderer>().sprite = FacialExpressions[idxOfFaceExpression];
+
 		TextBubble = FindObjectOfType<PersonsTextBubble>();
 	}
 
 	public void InitiateMoveTo(Vector3 target, float travelTime, Subject<Person> onArrival)
 	{
-		MainThreadDispatcher.StartUpdateMicroCoroutine(MoveTo(target, travelTime, onArrival));
+		// MainThreadDispatcher.StartUpdateMicroCoroutine(MoveTo(target, travelTime, onArrival));
 
 		//@TODO: Add wobble
 	}
 
-	IEnumerator MoveTo(Vector3 target, float time, Subject<Person> onArrival)
+
+
+	public IEnumerator MoveTo(Vector3 target, float time, IObserver<bool> observer, CancellationToken cancellationToken)
 	{
 		Vector3 startPosition = transform.position;
 
@@ -46,8 +52,13 @@ public class Person : MonoBehaviour {
 			yield return null;
 			AlphaTime += Time.deltaTime;
 		}
+		observer.OnNext(true);
+		observer.OnCompleted();
+	}
 
-		onArrival.OnNext(this);
+	public IEnumerator AwaitExpression()
+	{
+		yield return null;
 	}
 
 	public void InitiateAskQuestion(Subject<Person> OnQuestionEnd)
@@ -55,21 +66,19 @@ public class Person : MonoBehaviour {
 		MainThreadDispatcher.StartUpdateMicroCoroutine(AskQuestion(OnQuestionEnd));
 	}
 
-	IEnumerator AskQuestion(Subject<Person> OnQuestionEnd)
+	public IEnumerator AskQuestion(Subject<Person> OnQuestionEnd)
 	{
 		TextBubble.StartText("asdkjasndjasbduasjknfhasbklfa ahdbasjdbasuzdkbas abhsdnasdjnabshj bjaskdnasalnsdkasl najsdbasdbka hsfbsajf sad");
 
 		yield return null;
 
 		OnQuestionEnd.OnNext(this);
-
 	}
 
-	public void GeneratePersonMood()
+
+
+	public void GenerateQuestions()
 	{
-		int idxOfFaceExpression = (Random.Range(0, System.Enum.GetNames(typeof(Faces)).Length));
-		RequiredFaceExpression = (Faces)(idxOfFaceExpression);
-		GetComponent<SpriteRenderer>().sprite = FacialExpressions[idxOfFaceExpression];
 		QuestionCount = Random.Range(MinQuestionCount, MaxQuestionCount);
 	}
 }

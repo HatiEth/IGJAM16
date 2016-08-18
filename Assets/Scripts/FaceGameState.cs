@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UniRx;
 using UniRx.Triggers;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class FaceGameState : MonoBehaviour {
 	public Color[] FacialExpressionColors = new Color[System.Enum.GetNames(typeof(Faces)).Length];
 	private CompositeDisposable _disposeables = new CompositeDisposable();
+	private CompositeDisposable _coreloop = new CompositeDisposable();
 
 	public Transform PersonStartPosition;
 	public Transform PersonMidPosition;
@@ -74,7 +77,6 @@ public class FaceGameState : MonoBehaviour {
 				{
 					person.InitiateMoveTo(PersonExitPosition.position, 1.5f, PersonExited);
 				}
-				
 			});
 		}).AddTo(this.gameObject);
 
@@ -89,40 +91,68 @@ public class FaceGameState : MonoBehaviour {
 
 			SelectNextPerson();
 		}).AddTo(this.gameObject);
+	}
 
+	Subject<Person> PersonStream = new Subject<Person>();
+
+	private IObservable<Person> GeneratePersonObservable(Person p)
+	{
+		return Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonMidPosition.position, 1.5f, observer, cancelToken))
+								 .SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())
+								 .Do(expr =>
+								 {
+									 if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
+									 {
+										 // @TODO: Score here
+									 }
+								 })
+								 // @TODO: Start Question observable
+								 .SelectMany(Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 1.5f, observer, cancelToken)))
+								 .Select(_ => p)
+								 ;
 	}
 
 	private void Start()
 	{
-
-		m_MatchedExpression.Subscribe((gotItRight) =>
-		{
-		}).AddTo(_disposeables);
-
 		SelectNextPerson();
+
+		var CoreLoop = PersonStream
+			.SelectMany(person => GeneratePersonObservable(person))
+			.Select(person => person.transform.position = PersonStartPosition.transform.position)
+			.Do(_ => SelectNextPerson())
+			.Do(_ => PersonStream.OnNext(CurrentPerson))
+			;
+
+		var coreloop_cancel = CoreLoop.Subscribe((obj) =>
+		{
+			_coreloop.Dispose();  //@TODO Transit to new scene
+			SceneManager.LoadScene("MainScene");
+		})
+		;
+		coreloop_cancel.AddTo(_coreloop);
+
+		PersonStream.OnNext(CurrentPerson);
+
+		// If Time <= 0 - we complete the person stream
+		m_pPartyTimerS.Where(remainingTime => remainingTime < 0).Subscribe(_ => PersonStream.OnCompleted());
 	}
 
 	public void SelectNextPerson()
 	{
 		CurrentPerson = PartyPeople[Random.Range(0, NumberOfPersons - 1)];
-		CurrentPerson.GeneratePersonMood();
-		CurrentPerson.InitiateMoveTo(PersonMidPosition.position, 2.5f, PersonArrived);
+		CurrentPerson.GenerateQuestions();
 	}
 
 	public void OnDestroy()
 	{
 		_disposeables.Dispose();
-	}
-
-	public bool CalculateFacialExpressions()
-	{
-		return (CurrentPerson.RequiredFaceExpression == YourCurrentExpression);
+		_coreloop.Dispose();
 	}
 
 	public void SelectYourExpression(Faces expression)
 	{
-		YourCurrentExpression = expression;
-		m_MatchedExpression.OnNext(CalculateFacialExpressions());
+		MessageBroker.Default.Publish(new PlayerChoosedExpression { FacialExpression = expression });
+
 	}
 
 	void Update()
