@@ -48,18 +48,20 @@ public class Person : MonoBehaviour {
 		TextBubble = FindObjectOfType<PersonsTextBubble>();
 	}
 
-	public IEnumerator MoveTo(Vector3 target, float time)
+	public IEnumerator MoveTo(Vector3 target, float time, IObserver<Person> observer)
 	{
 		Vector3 startPosition = transform.position;
 
 		float AlphaTime = 0f;
 		while (AlphaTime <= time)
 		{
-			transform.position = startPosition + (target - startPosition) * PersonWalkAnimationProgress.Evaluate(Mathf.Clamp01(AlphaTime / time));
+			GetComponent<Rigidbody2D>().MovePosition(startPosition + (target - startPosition) * PersonWalkAnimationProgress.Evaluate(Mathf.Clamp01(AlphaTime / time)));
 
 			yield return null;
 			AlphaTime += Time.deltaTime;
 		}
+		observer.OnNext(this);
+		observer.OnCompleted();
 	}
 
 	public IEnumerator AwaitExpression()

@@ -18,8 +18,8 @@ public class Clock : MonoBehaviour
         m_FaceGame.m_pPartyTimerS.Subscribe((time) =>
         {
             clockTimer.GetComponent<Text>().text = "" + Mathf.FloorToInt(time);
-            clockFill.GetComponent<Image>().fillAmount = (time / m_FaceGame.PartyTimeSeconds);
-            clockRotator.transform.eulerAngles = new Vector3(0, 0, (time / m_FaceGame.PartyTimeSeconds) * 360.0f);
+            // clockFill.GetComponent<Image>().fillAmount = (time / m_FaceGame.PartyTimeSeconds);
+            // clockRotator.transform.eulerAngles = new Vector3(0, 0, (time / m_FaceGame.PartyTimeSeconds) * 360.0f);
         }).AddTo(this.gameObject);
     }
 }

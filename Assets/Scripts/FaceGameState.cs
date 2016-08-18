@@ -12,8 +12,8 @@ public class FaceGameState : MonoBehaviour {
 	private CompositeDisposable _coreloop = new CompositeDisposable();
 
 	public Transform PersonStartPosition;
-	public Transform PersonMidPosition;
 	public Transform PersonExitPosition;
+	public float PersonWalkDuration = 2.5f;
 
 	public float HeartMeterStart;
 	public ReactiveProperty<float> m_pHeartMeter;
@@ -22,20 +22,16 @@ public class FaceGameState : MonoBehaviour {
 	public GameObject PersonPrefab;
 	[Tooltip("Total number of other persons on party")]
 	public int NumberOfPersons = 7;
-	
+
+	[ReadOnlyDuringRun]
+	public Transform SweetSpot;
 
 	[ReadOnly]
 	public Faces[] AssociatedFaces = new Faces[System.Enum.GetNames(typeof(BodyTypes)).Length];
 	[ReadOnly]
-	public Person[] PartyPeople;
+	public List<Person> PartyPeople;
 
 	public Person CurrentPerson;
-
-	[Tooltip("Total time of party left in seconds")]
-	/* 
-	 * Total time of party left in seconds 
-	 */
-	public float PartyTimeSeconds;
 
 	public ReactiveProperty<float> m_pPartyTimerS;
 	public float PartyTimerS
@@ -69,62 +65,121 @@ public class FaceGameState : MonoBehaviour {
 
 	private void Awake()
 	{
-		m_pPartyTimerS = new ReactiveProperty<float>(PartyTimeSeconds);
+		m_pPartyTimerS = new ReactiveProperty<float>(0f);
 
 		GeneratedAssociatedFaces();
 
 
-		PartyPeople = new Person[NumberOfPersons];
+		PartyPeople = new List<Person>(NumberOfPersons);
 		for(int i=0;i<NumberOfPersons;++i)
 		{
 			var PartyPersonGO = GameObject.Instantiate(PersonPrefab, PersonStartPosition.position, Quaternion.identity) as GameObject;
-			PartyPeople[i] = PartyPersonGO.GetComponent<Person>();
+			var p = PartyPersonGO.GetComponent<Person>();
+			PartyPeople.Add(p);
 			//@TODO Proper randomize
-
-			PartyPeople[i].GenerateByTypes(AssociatedFaces[i], (BodyTypes)(i));
+			p.GenerateByTypes(AssociatedFaces[i], (BodyTypes)(i));
 		}
 	}
 
 	Subject<Person> PersonStream = new Subject<Person>();
 
+
+
 	private IObservable<Person> GeneratePersonObservable(Person p)
 	{
-		
 		return Observable.Timer(System.TimeSpan.FromSeconds(0.2)).AsUnitObservable()
 			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
-			.Do((_) => MainThreadDispatcher.StartUpdateMicroCoroutine(CurrentPerson.MoveTo(this.PersonExitPosition.position, 2.5f)))
-			.SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())	// wait for player
-			.First()
-			.Do((_) => p.HasMet = true)
-			.Do(expr =>
-			{
-				Debug.Log(expr);
-				if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
-				{
-					// @TODO: Score here, Calculate Sweetspot
-				}
-			})
-			.Select(_ => p)
-			// @TODO: Start Question observable
+			//.SelectMany((_) => Observable.FromCoroutine((observer) => CurrentPerson.MoveTo(this.PersonExitPosition.position, PersonWalkDuration)))
 			.Select(_ => p)
 			;
 	}
 
+	// Completes once the Person reached it's target
+	private IObservable<Person> MovePersonToExit(Person p)
+	{
+		return (Observable.FromCoroutine<Person>((observer) => p.MoveTo(this.PersonExitPosition.position, PersonWalkDuration, observer)));
+	}
+
+	private int StayingPeopleCounter;
+
+	private IEnumerator Unknown(float minWaitTime, float maxWaitTime, IObserver<Person> observer)
+	{
+		while(PartyPeople.Count > StayingPeopleCounter)
+		{
+			int PersonIdx = Random.Range(0, PartyPeople.Count - 1);
+			var p = PartyPeople.ElementAt(PersonIdx);
+			PartyPeople.RemoveAt(PersonIdx);
+			yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
+			observer.OnNext(p);
+		}
+		observer.OnCompleted();
+	}
+
 	private void Start()
 	{
-		SelectNextPerson();
-
-		var CoreLoop = PersonStream
-			.SelectMany(person => GeneratePersonObservable(person))
-			.Select(person => person.transform.position = PersonStartPosition.transform.position)
-			.Do(_ => SelectNextPerson())
-			.Do(_ => PersonStream.OnNext(CurrentPerson))
+		StayingPeopleCounter = NumberOfPersons - 1;
+		var MoveStream = PersonStream
+			.SelectMany((p) => MovePersonToExit(p))
+			.Delay(System.TimeSpan.FromSeconds(0.25))
+			.Do(p => PartyPeople.Add(p))
+			.Do(p => p.transform.position = PersonStartPosition.position)
+			.Subscribe()
 			;
 
-		var coreloop_cancel = CoreLoop.Subscribe();
-		coreloop_cancel.AddTo(this.gameObject);
+		var delaySelect = Observable
+			.FromCoroutine<Person>(observer => Unknown(0.75f, 1.5f, observer))
+			.Do(p => MessageBroker.Default.Publish(new PersonReady { Person = p }))
+			.RepeatUntilDestroy(this);
 
+		delaySelect.Subscribe(x => PersonStream.OnNext(x)); // Add selected person to PersonStream
+
+
+		var SweetSpotEnters = SweetSpot
+			.OnTriggerEnter2DAsObservable()
+			.SelectMany(collider => MessageBroker.Default.Receive<PlayerChoosedExpression>().Select(expr => new { collider, expr }))
+			;
+		SweetSpotEnters.Subscribe(x =>
+		{
+			if(x.collider.gameObject.GetComponent<Person>().RequiredFaceExpression == x.expr.FacialExpression)
+			{
+
+			}
+		});
+																					/*
+		SelectNextPerson();
 		PersonStream.OnNext(CurrentPerson);
+		SelectNextPerson();
+		PersonStream.OnNext(CurrentPerson);
+		SelectNextPerson();
+		PersonStream.OnNext(CurrentPerson);	 
+																				*/
+																					// SelectNextPerson();
+																					/*
+																					var CoreLoop = PersonStream
+																						.SelectMany(person => GeneratePersonObservable(person))
+																						.Select(person => person.transform.position = PersonStartPosition.transform.position)
+																						.Do(_ => SelectNextPerson())
+																						.Do(_ => PersonStream.OnNext(CurrentPerson))
+																						;
+
+																					var InputLoop = MessageBroker.Default.Receive<PlayerChoosedExpression>().AsObservable() // wait for player input
+																						.Do(expr =>
+																						{
+																							if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
+																							{
+																								Debug.Log("Hit Input");
+																							}
+																						})
+																						// @TODO: Start Question observable
+																						;
+
+																					InputLoop.Subscribe();
+
+																					var coreloop_cancel = CoreLoop.Subscribe();
+																					coreloop_cancel.AddTo(this.gameObject);
+
+																					PersonStream.OnNext(CurrentPerson);
+																					*/
 
 		// If Time <= 0 - we complete the person stream
 		// m_pPartyTimerS.Where(remainingTime => remainingTime < 0).Subscribe(_ => PersonStream.OnCompleted());
@@ -132,7 +187,10 @@ public class FaceGameState : MonoBehaviour {
 
 	public void SelectNextPerson()
 	{
-		CurrentPerson = PartyPeople[Random.Range(0, NumberOfPersons - 1)];
+		int PersonIdx = Random.Range(0, PartyPeople.Count - 1);
+		CurrentPerson = PartyPeople.ElementAt(PersonIdx);
+		PartyPeople.RemoveAt(PersonIdx);
+
 		CurrentPerson.GenerateQuestions();
 	}
 
@@ -144,11 +202,13 @@ public class FaceGameState : MonoBehaviour {
 
 	public void SelectYourExpression(Faces expression)
 	{
+		
+
 		MessageBroker.Default.Publish(new PlayerChoosedExpression { FacialExpression = expression });
 	}
 
 	void Update()
 	{
-		PartyTimerS -= Time.deltaTime;
+		PartyTimerS += Time.deltaTime;
 	}
 }
