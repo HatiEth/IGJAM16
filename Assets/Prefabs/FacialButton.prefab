@@ -76,6 +76,7 @@ GameObject:
   - 114: {fileID: 114000013753650288}
   - 114: {fileID: 114000010958777662}
   - 95: {fileID: 95000010554901708}
+  - 114: {fileID: 114000014120890852}
   m_Layer: 5
   m_Name: FacialButton
   m_TagString: Untagged
@@ -329,6 +330,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000014120890852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013574175690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe3f3f763d564841b87c05c4cebb4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 8a084cc0920b93e438af08c2a853d00d, type: 3}
+  hoverSound: {fileID: 8300000, guid: cf866d8f900ac5e4d830619b1c81378b, type: 3}
 --- !u!222 &222000010003162804
 CanvasRenderer:
   m_ObjectHideFlags: 1
