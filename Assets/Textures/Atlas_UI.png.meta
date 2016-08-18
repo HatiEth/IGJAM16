@@ -52,6 +52,7 @@ TextureImporter:
     21300090: T_GF_Head_00
     21300092: Faces-T_Player_Face_Angry_00
     21300094: Faces-T_Player_Face_Fear_00
+    21300096: T_GF_Head_00white
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -143,7 +144,7 @@ TextureImporter:
       name: Faces-T_GF_Face_Neutral_00
       rect:
         serializedVersion: 2
-        x: 3415
+        x: 3681
         y: 3848
         width: 258
         height: 240
@@ -156,7 +157,7 @@ TextureImporter:
       name: Faces-T_GF_Face_Sad_00
       rect:
         serializedVersion: 2
-        x: 3681
+        x: 3149
         y: 3848
         width: 258
         height: 240
@@ -234,7 +235,7 @@ TextureImporter:
       name: Faces-T_Player_Face_Sad_00
       rect:
         serializedVersion: 2
-        x: 3149
+        x: 3415
         y: 3848
         width: 258
         height: 240
@@ -260,7 +261,7 @@ TextureImporter:
       name: T_Body_Striped_00
       rect:
         serializedVersion: 2
-        x: 2644
+        x: 3303
         y: 2414
         width: 651
         height: 538
@@ -273,7 +274,7 @@ TextureImporter:
       name: T_Body_Suit_00
       rect:
         serializedVersion: 2
-        x: 1326
+        x: 1985
         y: 2414
         width: 651
         height: 538
@@ -286,7 +287,7 @@ TextureImporter:
       name: T_Body_Tatoo_00
       rect:
         serializedVersion: 2
-        x: 8
+        x: 667
         y: 2414
         width: 651
         height: 538
@@ -299,8 +300,8 @@ TextureImporter:
       name: T_Body_Tshirt_00
       rect:
         serializedVersion: 2
-        x: 3237
-        y: 2960
+        x: 8
+        y: 2414
         width: 651
         height: 538
       alignment: 0
@@ -312,7 +313,7 @@ TextureImporter:
       name: T_Body_Turtleneck_00
       rect:
         serializedVersion: 2
-        x: 667
+        x: 1326
         y: 2414
         width: 651
         height: 538
@@ -325,7 +326,7 @@ TextureImporter:
       name: T_Body_UglyShirt_00
       rect:
         serializedVersion: 2
-        x: 1919
+        x: 3098
         y: 2960
         width: 651
         height: 538
@@ -507,7 +508,7 @@ TextureImporter:
       name: T_GF_Body_00
       rect:
         serializedVersion: 2
-        x: 1985
+        x: 2644
         y: 2414
         width: 651
         height: 538
@@ -520,7 +521,7 @@ TextureImporter:
       name: T_GF_Hair_00
       rect:
         serializedVersion: 2
-        x: 1399
+        x: 1919
         y: 2986
         width: 512
         height: 512
@@ -533,7 +534,20 @@ TextureImporter:
       name: T_GF_Head_00
       rect:
         serializedVersion: 2
-        x: 879
+        x: 359
+        y: 2986
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_GF_Head_00white
+      rect:
+        serializedVersion: 2
+        x: 1399
         y: 2986
         width: 512
         height: 512
@@ -637,7 +651,7 @@ TextureImporter:
       name: T_Player_Body_00
       rect:
         serializedVersion: 2
-        x: 2578
+        x: 2439
         y: 2960
         width: 651
         height: 538
@@ -663,7 +677,7 @@ TextureImporter:
       name: T_Player_Head_00
       rect:
         serializedVersion: 2
-        x: 359
+        x: 879
         y: 2986
         width: 512
         height: 512
