@@ -41,17 +41,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI_Top
+  - name: UI_Background
     uniqueID: 1791881209
     locked: 0
   - name: 3D_Person
     uniqueID: 2091502709
     locked: 0
-  - name: UI_Bottom
+  - name: UI_PersonOnTop
     uniqueID: 3438602437
     locked: 0
   - name: 3D_Player
     uniqueID: 3505964391
+    locked: 0
+  - name: UI_PlayerOnTop
+    uniqueID: 2590449515
     locked: 0
   - name: UI_OnTop
     uniqueID: 1196962901

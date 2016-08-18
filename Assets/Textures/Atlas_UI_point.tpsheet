@@ -4,10 +4,10 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:be441a62200caf207fc9566a4db2b217:3b687f590ead79c6566e8d2fb1d1f434:e49dd72120e945268d57c6bd1c7cf95e$
+# $TexturePacker:SmartUpdate:82faaebde5d53cf410494658fe1844ce:3b687f590ead79c6566e8d2fb1d1f434:647ba70c4632a81804d964c8896bc414$
 #
 :format=40000
-:texture=Atlas_UI.png
+:texture=Atlas_UI_point.png
 :size=4096x4096
 :pivotpoints=enabled
 
