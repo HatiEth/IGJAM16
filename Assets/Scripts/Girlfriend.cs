@@ -16,14 +16,15 @@ public class Girlfriend : MonoBehaviour {
 	public AnimationCurve FadingCurve;
 	public float FadeDuration = 0.2f;
 
+	private HashSet<Faces> ExpressionTypes = new HashSet<Faces>();
+
+	bool HasMetType(Person p)
+	{
+		return ExpressionTypes.Contains(p.RequiredFaceExpression);
+	}
+
 	void Start()
 	{
-		/*
-		foreach (var toggle in Togglables)
-		{
-			toggle.enabled = false;
-		}
-		*/
 		UI_TransformRoot.gameObject.SetActive(false);
 
 		MessageBroker.Default.Receive<PersonReady>().Subscribe(msg =>
@@ -33,7 +34,6 @@ public class Girlfriend : MonoBehaviour {
 				UI_TransformRoot.gameObject.SetActive(true);
 				StartCoroutine(FadeIn(FadeDuration));
 				GirlfriendFacialSpriteRenderer.sprite = FacialExpressions[(int)msg.Person.RequiredFaceExpression];
-				
 			}
 			else
 			{

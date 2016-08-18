@@ -3,7 +3,6 @@ using UnityEngine;
 using System.Collections;
 
 public class Person : MonoBehaviour {
-	public Sprite[] FacialExpressions = new Sprite[System.Enum.GetNames(typeof(Faces)).Length];
 	[Tooltip("Minimum questions a person may ask")]
 	public int MinQuestionCount = 0;
 	[Tooltip("Maximum amount of questions the person will ask")]
@@ -25,8 +24,6 @@ public class Person : MonoBehaviour {
 	[ReadOnly]
 	public Faces RequiredFaceExpression;
 	[ReadOnly]
-	public string Name;
-	[ReadOnly]
 	public bool HasMet;
 
 	PersonsTextBubble TextBubble;
@@ -35,28 +32,12 @@ public class Person : MonoBehaviour {
 
 	void Start()
 	{
-		int idxOfFaceExpression = (Random.Range(0, System.Enum.GetNames(typeof(Faces)).Length));
-		RequiredFaceExpression = (Faces)(idxOfFaceExpression);
-		GetComponent<SpriteRenderer>().sprite = FacialExpressions[idxOfFaceExpression];
-
-		Name = GenerateName();
-
 		HairSlot.sprite = HairTypes[Random.Range(0, HairTypes.Length - 1)];
 		HeadSlot.sprite = HeadTypes[Random.Range(0, HeadTypes.Length - 1)];
 		FacialSlot.sprite = FacialTypes[Random.Range(0, FacialTypes.Length - 1)];
-		BodySlot.sprite = BodyTypes[Random.Range(0, BodyTypes.Length - 1)];
 
 		TextBubble = FindObjectOfType<PersonsTextBubble>();
 	}
-
-	public void InitiateMoveTo(Vector3 target, float travelTime, Subject<Person> onArrival)
-	{
-		// MainThreadDispatcher.StartUpdateMicroCoroutine(MoveTo(target, travelTime, onArrival));
-
-		//@TODO: Add wobble
-	}
-
-
 
 	public IEnumerator MoveTo(Vector3 target, float time, IObserver<bool> observer, CancellationToken cancellationToken)
 	{
@@ -93,21 +74,9 @@ public class Person : MonoBehaviour {
 		OnQuestionEnd.OnNext(this);
 	}
 
-	//public IObservable<bool> DoQuestions()
-	//{
-	//}
-
 	public void GenerateQuestions()
 	{
 		QuestionCount = Random.Range(MinQuestionCount, MaxQuestionCount);
 	}
 
-	private string GenerateName()
-	{
-		var path = Application.streamingAssetsPath + "/names.txt";
-
-
-
-		return ("");
-	}
 }

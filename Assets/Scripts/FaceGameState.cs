@@ -28,8 +28,11 @@ public class FaceGameState : MonoBehaviour {
 	public AudioClip SFX_Failed;
 	public AudioClip SFX_Selected;
 
-	public Person[] PartyPeople;
 
+	[ReadOnly]
+	public Faces[] AssociatedFaces = new Faces[System.Enum.GetNames(typeof(BodyTypes)).Length];
+	[ReadOnly]
+	public Person[] PartyPeople;
 
 	public Person CurrentPerson;
 
@@ -51,7 +54,6 @@ public class FaceGameState : MonoBehaviour {
 	public Subject<Person> PersonExited;
 	public Subject<Person> PersonQuestions;
 
-	ReactiveCommand SelectedFacialExpression = new ReactiveCommand();
 	private void Awake()
 	{
 		m_ASource = GetComponent<AudioSource>();
@@ -62,6 +64,8 @@ public class FaceGameState : MonoBehaviour {
 		{
 			var PartyPersonGO = GameObject.Instantiate(PersonPrefab, PersonStartPosition.position, Quaternion.identity) as GameObject;
 			PartyPeople[i] = PartyPersonGO.GetComponent<Person>();
+			//@TODO Proper randomize
+			PartyPeople[i].BodySlot.sprite = PartyPeople[i].BodyTypes[i % PartyPeople[i].BodyTypes.Length];
 		}
 
 		MessageBroker.Default.Receive<PlayerChoosedExpression>().Subscribe(msg =>
@@ -76,14 +80,14 @@ public class FaceGameState : MonoBehaviour {
 	{
 		return Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 2.5f, observer, cancelToken))
 			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
-			.SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())
+			.SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())	// wait for player
 			.First()
 			.Do((_) => p.HasMet = true)
 			.Do(expr =>
 			{
 				if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
 				{
-					// @TODO: Score here
+					// @TODO: Score here, Calculate Sweetspot
 					m_ASource.PlayOneShot(SFX_Scored);
 				}
 				else
