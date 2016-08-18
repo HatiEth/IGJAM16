@@ -18,30 +18,26 @@ public class Girlfriend : MonoBehaviour {
 
 	void Start()
 	{
-		foreach(var toggle in Togglables)
+		/*
+		foreach (var toggle in Togglables)
 		{
 			toggle.enabled = false;
 		}
+		*/
+		UI_TransformRoot.gameObject.SetActive(false);
 
 		MessageBroker.Default.Receive<PersonReady>().Subscribe(msg =>
 		{
 			if (!msg.Person.HasMet)
 			{
-				foreach (var toggle in Togglables)
-				{
-					toggle.enabled = true;
-					StartCoroutine(FadeIn(FadeDuration));
-				}
+				UI_TransformRoot.gameObject.SetActive(true);
+				StartCoroutine(FadeIn(FadeDuration));
 				GirlfriendFacialSpriteRenderer.sprite = FacialExpressions[(int)msg.Person.RequiredFaceExpression];
 				
 			}
 			else
 			{
-				foreach (var toggle in Togglables)
-				{
-					toggle.enabled = false;
-					StartCoroutine(FadeOut(FadeDuration));
-				}
+				StartCoroutine(FadeOut(FadeDuration));
 			}
 
 		}).AddTo(this.gameObject);
@@ -71,5 +67,6 @@ public class Girlfriend : MonoBehaviour {
 			yield return null;
 			AlphaTime -= Time.deltaTime;
 		}
+		UI_TransformRoot.gameObject.SetActive(false);
 	}
 }
