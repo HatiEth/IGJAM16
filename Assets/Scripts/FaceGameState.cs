@@ -15,6 +15,10 @@ public class FaceGameState : MonoBehaviour {
 	public Transform PersonMidPosition;
 	public Transform PersonExitPosition;
 
+	public float HeartMeterStart;
+	public ReactiveProperty<float> m_pHeartMeter;
+	public float HeartMeter { get { return m_pHeartMeter.Value; } set { m_pHeartMeter.Value = value; } }
+
 	public GameObject PersonPrefab;
 	[Tooltip("Total number of other persons on party")]
 	public int NumberOfPersons = 7;
@@ -70,7 +74,7 @@ public class FaceGameState : MonoBehaviour {
 
 	private IObservable<Person> GeneratePersonObservable(Person p)
 	{
-		return Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonMidPosition.position, 1.5f, observer, cancelToken))
+		return Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 2.5f, observer, cancelToken))
 			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
 			.SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())
 			.First()
@@ -90,8 +94,6 @@ public class FaceGameState : MonoBehaviour {
 			})
 			.Select(_ => p)
 			// @TODO: Start Question observable
-			.SelectMany(Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 1.5f, observer, cancelToken)))
-			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
 			.Select(_ => p)
 			;
 	}
