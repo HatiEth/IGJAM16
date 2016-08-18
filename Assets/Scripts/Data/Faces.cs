@@ -7,8 +7,6 @@ public enum Faces {
 	Surprise,
 	Sadness,
 	Joy,
-	Disgust,
-	Contempt,
 	Neutral,
 	Fear
 }

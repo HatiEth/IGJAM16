@@ -76,6 +76,7 @@ public class FaceGameState : MonoBehaviour {
 			.Select(_ => p)
 			// @TODO: Start Question observable
 			.SelectMany(Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 1.5f, observer, cancelToken)))
+			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
 			.Select(_ => p)
 			;
 	}
