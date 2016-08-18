@@ -4,18 +4,44 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:37b00f8d226eb2dddd2c3b183c27623a:3bc9e6c657438ad55853348d393ea7d5:e49dd72120e945268d57c6bd1c7cf95e$
+# $TexturePacker:SmartUpdate:667297bccfb686be93aad314aba2b7ae:8bba94a2cf8cde6b00d7129ed411598f:e49dd72120e945268d57c6bd1c7cf95e$
 #
 :format=40000
 :texture=Atlas_UI.png
-:size=2048x2048
+:size=4096x4096
 :pivotpoints=enabled
 
-T_Clock;8;1784;256;256;0.5;0.5
-T_Clock_Hand;272;1787;247;253;0.5;0.5
-T_Frame_Circle;527;1912;128;128;0.5;0.5
-T_Frame_Circle_Border;663;1912;128;128;0.5;0.5
-T_Frame_Circle_BorderThin;799;2008;32;32;0.5;0.5
-T_Frame_Square;839;1912;128;128;0.5;0.5
-T_Speechbubble_01;975;1984;128;56;0.5;0.5
-T_Speechbubble_Spike_01;1111;1965;61;75;0.5;0.5
+Faces/T_Face_Angry_00;1337;3848;258;240;0.5;0.5
+Faces/T_Face_Fear_00;2401;3848;258;240;0.5;0.5
+Faces/T_Player_Face_Happy_00;2667;3848;258;240;0.5;0.5
+Faces/T_Player_Face_Neutral_00;1603;3848;258;240;0.5;0.5
+Faces/T_Player_Face_Sad_00;1869;3848;258;240;0.5;0.5
+Faces/T_Player_Face_Surprised_00;2135;3848;258;240;0.5;0.5
+T_Body_Striped_00;2644;2687;651;538;0.5;0.5
+T_Body_Suit_00;1326;2687;651;538;0.5;0.5
+T_Body_Tatoo_00;8;2687;651;538;0.5;0.5
+T_Body_Tshirt_00;667;2687;651;538;0.5;0.5
+T_Body_Turtleneck_00;1985;2687;651;538;0.5;0.5
+T_Body_UglyShirt_00;3303;2687;651;538;0.5;0.5
+T_Clock;3188;3832;256;256;0.5;0.5
+T_Clock_Hand;2933;3835;247;253;0.5;0.5
+T_Face_Happy_00;1071;3848;258;240;0.5;0.5
+T_Face_Surprised_00;805;3848;258;240;0.5;0.5
+T_Frame_Circle;533;3960;128;128;0.5;0.5
+T_Frame_Circle_Border;669;3960;128;128;0.5;0.5
+T_Frame_Circle_Border2px;184;4024;64;64;0.5;0.5
+T_Frame_Circle_Border4px;256;4024;64;64;0.5;0.5
+T_Frame_Circle_BorderThin;8;4056;32;32;0.5;0.5
+T_Frame_Square;397;3960;128;128;0.5;0.5
+T_Hair_00;8;3462;347;309;0.5;0.5
+T_Hair_01;3452;3779;347;309;0.5;0.5
+T_Head_00;1420;3437;343;334;0.5;0.5
+T_Head_01;718;3437;343;334;0.5;0.5
+T_Head_02;1069;3437;343;334;0.5;0.5
+T_Head_03;1771;3437;343;334;0.5;0.5
+T_Head_05;2122;3437;343;334;0.5;0.5
+T_Player_Body_00;2993;3233;651;538;0.5;0.5
+T_Player_Hair_00;363;3462;347;309;0.5;0.5
+T_Player_Head_00;2473;3259;512;512;0.5;0.5
+T_Speechbubble_01;48;4032;128;56;0.5;0.5
+T_Speechbubble_Spike_01;328;4013;61;75;0.5;0.5

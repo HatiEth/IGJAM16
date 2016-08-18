@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011612975208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.43, z: 0}
+  m_LocalPosition: {x: -2.87, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -108,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010367803060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.55, y: 2.43, z: 0}
+  m_LocalPosition: {x: 10, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011592627104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.91, y: 2.43, z: 0}
+  m_LocalPosition: {x: -10, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -138,6 +138,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062b9ba2eadfa864bbfc9fea7434ce6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FacialExpressionColors:
+  - {r: 0.75735295, g: 0.3007137, b: 0.3007137, a: 1}
+  - {r: 0.74264705, g: 0.5449342, b: 0.33309907, a: 1}
+  - {r: 0.40495244, g: 0.47078225, b: 0.78676474, a: 1}
+  - {r: 0.8602941, g: 0.79817146, b: 0.2973075, a: 1}
+  - {r: 0.33206058, g: 0.64705884, b: 0.29022494, a: 1}
+  - {r: 0.40798008, g: 0.7205882, b: 0.59123313, a: 1}
+  - {r: 0.7058823, g: 0.7058823, b: 0.7058823, a: 1}
+  - {r: 0.64090276, g: 0.39170632, b: 0.77205884, a: 1}
   PersonStartPosition: {fileID: 4000014089981564}
   PersonMidPosition: {fileID: 4000011781988468}
   PersonExitPosition: {fileID: 4000014001058498}

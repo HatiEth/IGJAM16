@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 96dd19fb3f1fa1d458012100275dc37d
-timeCreated: 1471465165
+timeCreated: 1471508526
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,10 +12,36 @@ TextureImporter:
     21300010: T_Speechbubble_Spike_01
     21300012: T_Clock
     21300014: T_Clock_Hand
+    21300016: T_Head_00
+    21300018: T_Head_01
+    21300020: T_Head_02
+    21300022: T_Head_03
+    21300024: T_Head_05
+    21300026: T_Body_Suit_00
+    21300028: T_Body_Tatoo_00
+    21300030: T_Body_Tshirt_00
+    21300032: T_Body_Turtleneck_00
+    21300034: T_Body_UglyShirt_00
+    21300036: T_Face_Happy_00
+    21300038: T_Face_Surprised_00
+    21300040: T_Hair_00
+    21300042: T_Hair_01
+    21300044: T_Body_Striped_00
+    21300046: T_Frame_Circle_Border2px
+    21300048: T_Frame_Circle_Border4px
+    21300050: Faces-T_Face_Angry_00
+    21300052: Faces-T_Face_Fear_00
+    21300054: Faces-T_Player_Face_Happy_00
+    21300056: Faces-T_Player_Face_Neutral_00
+    21300058: Faces-T_Player_Face_Sad_00
+    21300060: Faces-T_Player_Face_Surprised_00
+    21300062: T_Player_Body_00
+    21300064: T_Player_Hair_00
+    21300066: T_Player_Head_00
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -37,7 +63,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 2
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -55,17 +81,173 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_Clock
+      name: Faces-T_Face_Angry_00
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 3848
+        width: 258
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Faces-T_Face_Fear_00
+      rect:
+        serializedVersion: 2
+        x: 2401
+        y: 3848
+        width: 258
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Faces-T_Player_Face_Happy_00
+      rect:
+        serializedVersion: 2
+        x: 2667
+        y: 3848
+        width: 258
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Faces-T_Player_Face_Neutral_00
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 3848
+        width: 258
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Faces-T_Player_Face_Sad_00
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 3848
+        width: 258
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Faces-T_Player_Face_Surprised_00
+      rect:
+        serializedVersion: 2
+        x: 2135
+        y: 3848
+        width: 258
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Body_Striped_00
+      rect:
+        serializedVersion: 2
+        x: 2644
+        y: 2687
+        width: 651
+        height: 538
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Body_Suit_00
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 2687
+        width: 651
+        height: 538
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Body_Tatoo_00
       rect:
         serializedVersion: 2
         x: 8
-        y: 1784
+        y: 2687
+        width: 651
+        height: 538
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Body_Tshirt_00
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 2687
+        width: 651
+        height: 538
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Body_Turtleneck_00
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 2687
+        width: 651
+        height: 538
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Body_UglyShirt_00
+      rect:
+        serializedVersion: 2
+        x: 3303
+        y: 2687
+        width: 651
+        height: 538
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Clock
+      rect:
+        serializedVersion: 2
+        x: 3188
+        y: 3832
         width: 256
         height: 256
       alignment: 0
@@ -77,10 +259,36 @@ TextureImporter:
       name: T_Clock_Hand
       rect:
         serializedVersion: 2
-        x: 272
-        y: 1787
+        x: 2933
+        y: 3835
         width: 247
         height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Face_Happy_00
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 3848
+        width: 258
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Face_Surprised_00
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 3848
+        width: 258
+        height: 240
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -90,8 +298,8 @@ TextureImporter:
       name: T_Frame_Circle
       rect:
         serializedVersion: 2
-        x: 527
-        y: 1912
+        x: 533
+        y: 3960
         width: 128
         height: 128
       alignment: 0
@@ -103,8 +311,8 @@ TextureImporter:
       name: T_Frame_Circle_Border
       rect:
         serializedVersion: 2
-        x: 663
-        y: 1912
+        x: 669
+        y: 3960
         width: 128
         height: 128
       alignment: 0
@@ -113,11 +321,37 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: T_Frame_Circle_Border2px
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 4024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 32, y: 32, z: 32, w: 32}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Frame_Circle_Border4px
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 4024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 32, y: 32, z: 32, w: 32}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: T_Frame_Circle_BorderThin
       rect:
         serializedVersion: 2
-        x: 799
-        y: 2008
+        x: 8
+        y: 4056
         width: 32
         height: 32
       alignment: 0
@@ -129,8 +363,8 @@ TextureImporter:
       name: T_Frame_Square
       rect:
         serializedVersion: 2
-        x: 839
-        y: 1912
+        x: 397
+        y: 3960
         width: 128
         height: 128
       alignment: 0
@@ -139,11 +373,141 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: T_Hair_00
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3462
+        width: 347
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Hair_01
+      rect:
+        serializedVersion: 2
+        x: 3452
+        y: 3779
+        width: 347
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Head_00
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 3437
+        width: 343
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Head_01
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 3437
+        width: 343
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Head_02
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 3437
+        width: 343
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Head_03
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 3437
+        width: 343
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Head_05
+      rect:
+        serializedVersion: 2
+        x: 2122
+        y: 3437
+        width: 343
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Player_Body_00
+      rect:
+        serializedVersion: 2
+        x: 2993
+        y: 3233
+        width: 651
+        height: 538
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Player_Hair_00
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 3462
+        width: 347
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: T_Player_Head_00
+      rect:
+        serializedVersion: 2
+        x: 2473
+        y: 3259
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: T_Speechbubble_01
       rect:
         serializedVersion: 2
-        x: 975
-        y: 1984
+        x: 48
+        y: 4032
         width: 128
         height: 56
       alignment: 0
@@ -155,8 +519,8 @@ TextureImporter:
       name: T_Speechbubble_Spike_01
       rect:
         serializedVersion: 2
-        x: 1111
-        y: 1965
+        x: 328
+        y: 4013
         width: 61
         height: 75
       alignment: 0
