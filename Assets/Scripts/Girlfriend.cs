@@ -8,10 +8,10 @@ using System.Collections.Generic;
 public class Girlfriend : MonoBehaviour {
 
 	public RectTransform UI_TransformRoot;
-	public Image GirlfriendFacialSpriteRenderer;
+	public Image GirlfriendFacialImage;
 	public Sprite[] FacialExpressions = new Sprite[System.Enum.GetNames(typeof(Faces)).Length];
-
-	public Image[] Togglables;
+	public Image GirlFriendBodyTypeImage;
+	public Sprite[] BodyTypeSprites = new Sprite[System.Enum.GetNames(typeof(BodyTypes)).Length];
 
 	public AnimationCurve FadingCurve;
 	public float FadeDuration = 0.2f;
@@ -32,10 +32,10 @@ public class Girlfriend : MonoBehaviour {
 			if (!HasMetType(msg.Person))
 			{
 				ExpressionTypes.Add(msg.Person.RequiredFaceExpression);
-
 				UI_TransformRoot.gameObject.SetActive(true);
 				StartCoroutine(FadeIn(FadeDuration));
-				GirlfriendFacialSpriteRenderer.sprite = FacialExpressions[(int)msg.Person.RequiredFaceExpression];
+				GirlfriendFacialImage.sprite = FacialExpressions[(int)msg.Person.RequiredFaceExpression];
+				GirlFriendBodyTypeImage.sprite = BodyTypeSprites[(int)msg.Person.CurrentBodyType];
 			}
 			else
 			{

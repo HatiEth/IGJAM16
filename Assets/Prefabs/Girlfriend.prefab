@@ -203,13 +203,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_TransformRoot: {fileID: 0}
-  GirlfriendFacialSpriteRenderer: {fileID: 0}
+  GirlfriendFacialImage: {fileID: 0}
   FacialExpressions:
   - {fileID: 21300074, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   - {fileID: 21300082, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   - {fileID: 21300078, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   - {fileID: 21300076, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
-  Togglables: []
+  GirlFriendBodyTypeImage: {fileID: 0}
+  BodyTypeSprites:
+  - {fileID: 21300026, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300044, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300028, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300030, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300032, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300034, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   FadingCurve:
     serializedVersion: 2
     m_Curve:

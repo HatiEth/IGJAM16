@@ -150,9 +150,11 @@ MonoBehaviour:
   PersonStartPosition: {fileID: 4000014089981564}
   PersonMidPosition: {fileID: 4000011781988468}
   PersonExitPosition: {fileID: 4000014001058498}
+  HeartMeterStart: 0
   PersonPrefab: {fileID: 1000012734669510, guid: de242c5c9dc3b194eab5c57af6b8da43,
     type: 2}
-  NumberOfPersons: 5
+  NumberOfPersons: 6
+  AssociatedFaces: 000000000000000000000000000000000000000000000000
   PartyPeople: []
   CurrentPerson: {fileID: 0}
   PartyTimeSeconds: 180
