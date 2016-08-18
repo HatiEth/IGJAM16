@@ -2,16 +2,22 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Textures/Atlas_ScoreFX_Bad_2x7.tpsheet
+- Assets/Textures/Atlas_ScoreFX_Good_2x14.tpsheet
 - Assets/Textures/Atlas_ScoreFX_Perfect_2x7.tpsheet
 - Assets/Textures/Atlas_UI.tpsheet
 - Assets/Textures/Atlas_UI_point.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Textures/Atlas_ScoreFX_Bad_2x7.png
+- Assets/Textures/Atlas_ScoreFX_Good_2x14.png
 - Assets/Textures/Atlas_ScoreFX_Perfect_2x7.png
 - Assets/Textures/Atlas_UI.png
 - Assets/Textures/Atlas_UI_point.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
 - 
 - 
 - 
