@@ -1,0 +1,27 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:7c37595ea61b7ab82edb8991a58c8e8b:da2dd08c719897f45c38717c0e87a0a9:4b1bdabcc3da3bcb0b6b60e07cd4ed64$
+#
+:format=40000
+:texture=Atlas_ScoreFX_Good_2x14.png
+:size=1404x1340
+:pivotpoints=enabled
+
+T_ScoreFX_Good_00000;1;1150;700;189;0.5;0.5
+T_ScoreFX_Good_00001;703;1150;700;189;0.5;0.5
+T_ScoreFX_Good_00002;1;959;700;189;0.5;0.5
+T_ScoreFX_Good_00003;703;959;700;189;0.5;0.5
+T_ScoreFX_Good_00004;1;768;700;189;0.5;0.5
+T_ScoreFX_Good_00005;703;768;700;189;0.5;0.5
+T_ScoreFX_Good_00006;1;577;700;189;0.5;0.5
+T_ScoreFX_Good_00007;703;577;700;189;0.5;0.5
+T_ScoreFX_Good_00008;1;386;700;189;0.5;0.5
+T_ScoreFX_Good_00009;703;386;700;189;0.5;0.5
+T_ScoreFX_Good_00010;1;195;700;189;0.5;0.5
+T_ScoreFX_Good_00011;703;195;700;189;0.5;0.5
+T_ScoreFX_Good_00012;1;4;700;189;0.5;0.5
+T_ScoreFX_Good_00013;703;4;700;189;0.5;0.5
