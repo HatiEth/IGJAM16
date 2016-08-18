@@ -1,0 +1,27 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:4892f65c51ecac589ba095eace2a6ce2:ba5d16035b019360da9f26fad351e227:e3cef77d2a6a452caedae4c97e25c9a5$
+#
+:format=40000
+:texture=Atlas_ScoreFX_Perfect_2x7.png
+:size=1404x1340
+:pivotpoints=enabled
+
+PerfectAnim_00000;1;1150;700;189;0.5;0.5
+PerfectAnim_00001;703;1150;700;189;0.5;0.5
+PerfectAnim_00002;1;959;700;189;0.5;0.5
+PerfectAnim_00003;703;959;700;189;0.5;0.5
+PerfectAnim_00004;1;768;700;189;0.5;0.5
+PerfectAnim_00005;703;768;700;189;0.5;0.5
+PerfectAnim_00006;1;577;700;189;0.5;0.5
+PerfectAnim_00007;703;577;700;189;0.5;0.5
+PerfectAnim_00008;1;386;700;189;0.5;0.5
+PerfectAnim_00009;703;386;700;189;0.5;0.5
+PerfectAnim_00010;1;195;700;189;0.5;0.5
+PerfectAnim_00011;703;195;700;189;0.5;0.5
+PerfectAnim_00012;1;4;700;189;0.5;0.5
+PerfectAnim_00013;703;4;700;189;0.5;0.5
