@@ -29,8 +29,10 @@ public class Girlfriend : MonoBehaviour {
 
 		MessageBroker.Default.Receive<PersonReady>().Subscribe(msg =>
 		{
-			if (!msg.Person.HasMet)
+			if (!HasMetType(msg.Person))
 			{
+				ExpressionTypes.Add(msg.Person.RequiredFaceExpression);
+
 				UI_TransformRoot.gameObject.SetActive(true);
 				StartCoroutine(FadeIn(FadeDuration));
 				GirlfriendFacialSpriteRenderer.sprite = FacialExpressions[(int)msg.Person.RequiredFaceExpression];

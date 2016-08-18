@@ -16,19 +16,28 @@ public class Person : MonoBehaviour {
 	public Sprite[] HeadTypes;
 	public Sprite[] HairTypes;
 	public Sprite[] FacialTypes;
-	public Sprite[] BodyTypes;
+	public Sprite[] BodyTypeSprites;
 
 	[ReadOnly]
 	public int QuestionCount = 0;
 
 	[ReadOnly]
 	public Faces RequiredFaceExpression;
+	public BodyTypes CurrentBodyType;
+
 	[ReadOnly]
 	public bool HasMet;
 
 	PersonsTextBubble TextBubble;
 
 	public AnimationCurve PersonWalkAnimationProgress;
+
+	public void GenerateByTypes(Faces F, BodyTypes B)
+	{
+		RequiredFaceExpression = F;
+		CurrentBodyType = B;
+		BodySlot.sprite = BodyTypeSprites[(int)B];
+	}
 
 	void Start()
 	{
@@ -39,7 +48,7 @@ public class Person : MonoBehaviour {
 		TextBubble = FindObjectOfType<PersonsTextBubble>();
 	}
 
-	public IEnumerator MoveTo(Vector3 target, float time, IObserver<bool> observer, CancellationToken cancellationToken)
+	public IEnumerator MoveTo(Vector3 target, float time)
 	{
 		Vector3 startPosition = transform.position;
 
@@ -51,8 +60,6 @@ public class Person : MonoBehaviour {
 			yield return null;
 			AlphaTime += Time.deltaTime;
 		}
-		observer.OnNext(true);
-		observer.OnCompleted();
 	}
 
 	public IEnumerator AwaitExpression()

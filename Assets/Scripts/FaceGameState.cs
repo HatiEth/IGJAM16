@@ -28,7 +28,6 @@ public class FaceGameState : MonoBehaviour {
 	public AudioClip SFX_Failed;
 	public AudioClip SFX_Selected;
 
-
 	[ReadOnly]
 	public Faces[] AssociatedFaces = new Faces[System.Enum.GetNames(typeof(BodyTypes)).Length];
 	[ReadOnly]
@@ -54,18 +53,40 @@ public class FaceGameState : MonoBehaviour {
 	public Subject<Person> PersonExited;
 	public Subject<Person> PersonQuestions;
 
+
+	private void GeneratedAssociatedFaces()
+	{
+		var EnumValues = System.Enum.GetValues(typeof(Faces));
+		List<Faces> EnumValuesInt = new List<Faces>(EnumValues.OfType<Faces>());
+
+		for(int i=0;i<AssociatedFaces.Length;++i)
+		{
+			if(EnumValuesInt.Count == 0)
+			{
+				EnumValuesInt = new List<Faces>(EnumValues.OfType<Faces>());
+			}
+			int randIdx = Random.Range(0, EnumValuesInt.Count - 1);
+			AssociatedFaces[i] = EnumValuesInt.ElementAt(randIdx);
+			EnumValuesInt.RemoveAt(randIdx);
+		}
+	}
+
 	private void Awake()
 	{
 		m_ASource = GetComponent<AudioSource>();
 		m_pPartyTimerS = new ReactiveProperty<float>(PartyTimeSeconds);
-		
+
+		GeneratedAssociatedFaces();
+
+
 		PartyPeople = new Person[NumberOfPersons];
 		for(int i=0;i<NumberOfPersons;++i)
 		{
 			var PartyPersonGO = GameObject.Instantiate(PersonPrefab, PersonStartPosition.position, Quaternion.identity) as GameObject;
 			PartyPeople[i] = PartyPersonGO.GetComponent<Person>();
 			//@TODO Proper randomize
-			PartyPeople[i].BodySlot.sprite = PartyPeople[i].BodyTypes[i % PartyPeople[i].BodyTypes.Length];
+
+			PartyPeople[i].GenerateByTypes(AssociatedFaces[i], (BodyTypes)(i));
 		}
 
 		MessageBroker.Default.Receive<PlayerChoosedExpression>().Subscribe(msg =>
@@ -78,8 +99,10 @@ public class FaceGameState : MonoBehaviour {
 
 	private IObservable<Person> GeneratePersonObservable(Person p)
 	{
-		return Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 2.5f, observer, cancelToken))
+		
+		return Observable.Timer(System.TimeSpan.FromSeconds(0.2)).AsUnitObservable()
 			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
+			.Do((_) => MainThreadDispatcher.StartUpdateMicroCoroutine(CurrentPerson.MoveTo(this.PersonExitPosition.position, 2.5f)))
 			.SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())	// wait for player
 			.First()
 			.Do((_) => p.HasMet = true)
