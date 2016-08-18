@@ -4,15 +4,15 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:82faaebde5d53cf410494658fe1844ce:3b687f590ead79c6566e8d2fb1d1f434:647ba70c4632a81804d964c8896bc414$
+# $TexturePacker:SmartUpdate:4c6cc9167a58b1e408e8414a85821bdf:3b687f590ead79c6566e8d2fb1d1f434:647ba70c4632a81804d964c8896bc414$
 #
 :format=40000
 :texture=Atlas_UI_point.png
 :size=4096x4096
 :pivotpoints=enabled
 
-Faces/T_Face_Angry_00;1021;3848;258;240;0.5;0.5
-Faces/T_Face_Fear_00;2351;3848;258;240;0.5;0.5
+Faces/T_Player_Face_Angry_00;1021;3848;258;240;0.5;0.5
+Faces/T_Player_Face_Fear_00;2351;3848;258;240;0.5;0.5
 Faces/T_Player_Face_Happy_00;1819;3848;258;240;0.5;0.5
 Faces/T_Player_Face_Neutral_00;1553;3848;258;240;0.5;0.5
 Faces/T_Player_Face_Sad_00;2085;3848;258;240;0.5;0.5

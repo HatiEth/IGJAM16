@@ -41,6 +41,8 @@ TextureImporter:
     21300068: T_Speechbubble_01
     21300070: T_Speechbubble_Spike_01
     21300072: Faces-T_Player_Face_Neutral_00
+    21300074: Faces-T_Player_Face_Angry_00
+    21300076: Faces-T_Player_Face_Fear_00
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -90,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Faces-T_Face_Angry_00
+      name: Faces-T_Player_Face_Angry_00
       rect:
         serializedVersion: 2
         x: 1021
@@ -103,7 +105,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: Faces-T_Face_Fear_00
+      name: Faces-T_Player_Face_Fear_00
       rect:
         serializedVersion: 2
         x: 2351
