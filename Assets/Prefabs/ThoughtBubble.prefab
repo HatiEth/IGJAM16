@@ -176,7 +176,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 652500f2280206846bb4fa94d0dfaf4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -232,7 +232,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 720ceea43425c8b44a305ebe2e337589, type: 3}
-    m_FontSize: 41
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -326,10 +326,10 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013587942148}
-  m_LocalRotation: {x: -0, y: 0, z: -0.74820346, w: -0.66346943}
+  m_LocalRotation: {x: -0, y: 0, z: -0.99980724, w: -0.019633578}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.4, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -263.13}
+  m_LocalScale: {x: 1, y: 1.29, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -182.25}
   m_Children:
   - {fileID: 224000013501872816}
   m_Father: {fileID: 224000014262185172}
@@ -337,7 +337,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 420.1, y: 69}
-  m_SizeDelta: {x: 127.6, y: 116.2}
+  m_SizeDelta: {x: 172.8, y: 140.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000010666528982
 RectTransform:
@@ -399,17 +399,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012356236818}
-  m_LocalRotation: {x: 0, y: -0, z: 0.74820346, w: -0.66346943}
+  m_LocalRotation: {x: 0, y: -0, z: 0.9996842, w: -0.025130147}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.71837384, y: 0.995912, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 182.88}
   m_Children: []
   m_Father: {fileID: 224000010507493464}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -48.980003, y: -13.100001}
-  m_SizeDelta: {x: 63.39999, y: 10.600002}
+  m_AnchoredPosition: {x: -53.940002, y: 39.274994}
+  m_SizeDelta: {x: 53.480003, y: -19.35001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000014262185172
 RectTransform:
