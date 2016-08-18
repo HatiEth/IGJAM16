@@ -51,6 +51,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013363074146}
+  - 114: {fileID: 114000011136301700}
   m_Layer: 0
   m_Name: Girlfriend
   m_TagString: Untagged
@@ -159,6 +160,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011875690210}
   m_RootOrder: 0
+--- !u!114 &114000011136301700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012544316540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8da25c064eb5146acf82ff310aae9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI_TransformRoot: {fileID: 0}
+  GirlfriendFacialSpriteRenderer: {fileID: 0}
+  FacialExpressions:
+  - {fileID: 21300074, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300084, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300082, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300078, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300080, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300076, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  Togglables:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  FadingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: -0.99522215
+      outSlope: -0.99522215
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: -0.8968743
+      outSlope: -0.8968743
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  FadeDuration: 0.2
 --- !u!212 &212000010321013260
 SpriteRenderer:
   m_ObjectHideFlags: 1
