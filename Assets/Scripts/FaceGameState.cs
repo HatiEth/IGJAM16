@@ -61,22 +61,23 @@ public class FaceGameState : MonoBehaviour {
 	private IObservable<Person> GeneratePersonObservable(Person p)
 	{
 		return Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonMidPosition.position, 1.5f, observer, cancelToken))
-								 .SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())
-								 .First()
-								 .Do(expr =>
-								 {
-									 Debug.Log(expr);
-									 if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
-									 {
-										 Debug.Log("Correct one");
-										 // @TODO: Score here
-									 }
-								 })
-								 .Do(_ => Debug.Log("Here"))
-								 // @TODO: Start Question observable
-								 .SelectMany(Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 1.5f, observer, cancelToken)))
-								 .Select(_ => p)
-								 ;
+			.Do((_) => MessageBroker.Default.Publish(new PersonReady { Person = p }))
+			.SelectMany(MessageBroker.Default.Receive<PlayerChoosedExpression>())
+			.First()
+			.Do((_) => p.HasMet = true)
+			.Do(expr =>
+			{
+				Debug.Log(expr);
+				if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
+				{
+					// @TODO: Score here
+				}
+			})
+			.Select(_ => p)
+			// @TODO: Start Question observable
+			.SelectMany(Observable.FromCoroutine<bool>((observer, cancelToken) => CurrentPerson.MoveTo(this.PersonExitPosition.position, 1.5f, observer, cancelToken)))
+			.Select(_ => p)
+			;
 	}
 
 	private void Start()

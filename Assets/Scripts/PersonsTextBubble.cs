@@ -9,10 +9,10 @@ public class PersonsTextBubble : MonoBehaviour {
 		AssociatedTextWriter = GetComponentInChildren<Textwriter>();
 	}
 
-	public void StartText(string TargetText)
+	public IEnumerator StartText(string TargetText)
 	{
 
-		AssociatedTextWriter.StartText(TargetText);
+		yield return AssociatedTextWriter.WriteText(TargetText);
 	}
 
 

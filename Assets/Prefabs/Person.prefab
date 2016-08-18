@@ -181,13 +181,52 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ca2d00116c75d14468aa0f1f4c9f3ef3, type: 3}
   - {fileID: 21300000, guid: 38301556b5fad19439a304a5e2f6c96a, type: 3}
   - {fileID: 21300000, guid: e99222e48d3c4af45915a848fd706c59, type: 3}
-  font: {fileID: 0}
   MinQuestionCount: 1
   MaxQuestionCount: 1
+  HeadSlot: {fileID: 212000011081344152}
+  HairSlot: {fileID: 212000010298397530}
+  FacialSlot: {fileID: 212000010487445396}
+  BodySlot: {fileID: 212000012823430612}
+  HeadTypes:
+  - {fileID: 21300016, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300018, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300020, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300022, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300024, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  HairTypes:
+  - {fileID: 21300040, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300042, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300064, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  FacialTypes:
+  - {fileID: 21300036, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300038, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  BodyTypes:
+  - {fileID: 21300044, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300026, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300028, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300030, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300032, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300034, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   QuestionCount: 0
   RequiredFaceExpression: 0
   Name: 
   HasMet: 0
+  PersonWalkAnimationProgress:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: -0.9269776
+      outSlope: -0.9269776
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: -1.2673744
+      outSlope: 0
+      tangentMode: 1
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!212 &212000010298397530
 SpriteRenderer:
   m_ObjectHideFlags: 1

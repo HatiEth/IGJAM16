@@ -9,6 +9,16 @@ public class Person : MonoBehaviour {
 	[Tooltip("Maximum amount of questions the person will ask")]
 	public int MaxQuestionCount = 1;
 
+	public SpriteRenderer HeadSlot;
+	public SpriteRenderer HairSlot;
+	public SpriteRenderer FacialSlot;
+	public SpriteRenderer BodySlot;
+
+	public Sprite[] HeadTypes;
+	public Sprite[] HairTypes;
+	public Sprite[] FacialTypes;
+	public Sprite[] BodyTypes;
+
 	[ReadOnly]
 	public int QuestionCount = 0;
 
@@ -21,11 +31,20 @@ public class Person : MonoBehaviour {
 
 	PersonsTextBubble TextBubble;
 
+	public AnimationCurve PersonWalkAnimationProgress;
+
 	void Start()
 	{
 		int idxOfFaceExpression = (Random.Range(0, System.Enum.GetNames(typeof(Faces)).Length));
 		RequiredFaceExpression = (Faces)(idxOfFaceExpression);
 		GetComponent<SpriteRenderer>().sprite = FacialExpressions[idxOfFaceExpression];
+
+		Name = GenerateName();
+
+		HairSlot.sprite = HairTypes[Random.Range(0, HairTypes.Length - 1)];
+		HeadSlot.sprite = HeadTypes[Random.Range(0, HeadTypes.Length - 1)];
+		FacialSlot.sprite = FacialTypes[Random.Range(0, FacialTypes.Length - 1)];
+		BodySlot.sprite = BodyTypes[Random.Range(0, BodyTypes.Length - 1)];
 
 		TextBubble = FindObjectOfType<PersonsTextBubble>();
 	}
@@ -46,7 +65,7 @@ public class Person : MonoBehaviour {
 		float AlphaTime = 0f;
 		while (AlphaTime <= time)
 		{
-			transform.position = Vector3.Lerp(startPosition, target, Mathf.Clamp01(AlphaTime / time));
+			transform.position = startPosition + (target - startPosition) * PersonWalkAnimationProgress.Evaluate(Mathf.Clamp01(AlphaTime / time));
 
 			yield return null;
 			AlphaTime += Time.deltaTime;
@@ -74,10 +93,21 @@ public class Person : MonoBehaviour {
 		OnQuestionEnd.OnNext(this);
 	}
 
-
+	//public IObservable<bool> DoQuestions()
+	//{
+	//}
 
 	public void GenerateQuestions()
 	{
 		QuestionCount = Random.Range(MinQuestionCount, MaxQuestionCount);
+	}
+
+	private string GenerateName()
+	{
+		var path = Application.streamingAssetsPath + "/names.txt";
+
+
+
+		return ("");
 	}
 }

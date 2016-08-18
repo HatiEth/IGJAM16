@@ -1,19 +1,27 @@
+using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
+
 public class Girlfriend : MonoBehaviour {
 
-	[HideInInspector]
-	public HashSet<System.Type> PersonsMet = new HashSet<System.Type>();
+	public Sprite[] FacialExpressions = new Sprite[System.Enum.GetNames(typeof(Faces)).Length];
 
-	public bool HasMet(System.Type PersonType)
+	void Start()
 	{
-		return (PersonsMet.Contains(PersonType));
-	}
+		Text textBox = GetComponent<Text>();
 
-	public void Meet(System.Type PersonType)
-	{
-		PersonsMet.Add(PersonType);
+		MessageBroker.Default.Receive<PersonReady>().Subscribe(msg =>
+		{
+			if(!msg.Person.HasMet)
+			{
+				textBox.text = "be " + msg.Person.RequiredFaceExpression;
+
+				// GetComponent<SpriteRenderer>().sprite = FacialExpressions[(int)msg.Person.RequiredFaceExpression];
+			}
+
+		}).AddTo(this.gameObject);
 	}
 }

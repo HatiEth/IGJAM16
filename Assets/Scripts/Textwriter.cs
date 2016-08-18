@@ -27,16 +27,11 @@ public class Textwriter : MonoBehaviour {
 		writerData.Capacity = TargetText.Length;
 	}
 
-	public void StartText(string text)
+	public IEnumerator WriteText(string text)
 	{
 		writerData.Clear();
 		TargetText = text;
-		MainThreadDispatcher.StartUpdateMicroCoroutine(WriteText());
-	}
 
-
-	IEnumerator WriteText()
-	{
 		float totalTime = TargetText.Length * SecondsPerLetter;
 		float localTime = 0f;
 		float timeTillNextLetter = 0f;
