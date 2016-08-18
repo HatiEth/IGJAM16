@@ -4,7 +4,6 @@ using System.Collections;
 
 public class Person : MonoBehaviour {
 	public Sprite[] FacialExpressions = new Sprite[System.Enum.GetNames(typeof(Faces)).Length];
-	public Font font;
 	[Tooltip("Minimum questions a person may ask")]
 	public int MinQuestionCount = 0;
 	[Tooltip("Maximum amount of questions the person will ask")]
