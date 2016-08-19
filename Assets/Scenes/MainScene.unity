@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692558, g: 0.49678743, b: 0.57508624, a: 1}
+  m_IndirectSpecularColor: {r: 0.44688284, g: 0.49568552, b: 0.57304317, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1484,7 +1484,7 @@ Prefab:
     - target: {fileID: 224000013246004392, guid: 0335bb04ee1ef374aa0be615096c23e6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 160
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000013246004392, guid: 0335bb04ee1ef374aa0be615096c23e6,
         type: 2}
@@ -1604,12 +1604,12 @@ Prefab:
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 336.67715
+      value: 336.72473
       objectReference: {fileID: 0}
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -44.897522
+      value: -44.901844
       objectReference: {fileID: 0}
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
@@ -1816,12 +1816,12 @@ Prefab:
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 246.67715
+      value: 246.72473
       objectReference: {fileID: 0}
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -44.897522
+      value: -44.901844
       objectReference: {fileID: 0}
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
@@ -2293,13 +2293,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 50000013119740612, guid: 1e13f4ce193c4384ba48157b9ca1a33f,
+    - target: {fileID: 114000011335340352, guid: 1e13f4ce193c4384ba48157b9ca1a33f,
         type: 2}
-      propertyPath: m_Constraints
-      value: 3
+      propertyPath: PersonWalkDuration
+      value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 50000013119740612, guid: 1e13f4ce193c4384ba48157b9ca1a33f, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e13f4ce193c4384ba48157b9ca1a33f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1010723988
@@ -2694,12 +2693,12 @@ Prefab:
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 66.677155
+      value: 66.72473
       objectReference: {fileID: 0}
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -44.897522
+      value: -44.901844
       objectReference: {fileID: 0}
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
@@ -3479,12 +3478,12 @@ Prefab:
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 156.67715
+      value: 156.72473
       objectReference: {fileID: 0}
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -44.897522
+      value: -44.901844
       objectReference: {fileID: 0}
     - target: {fileID: 224000013870086138, guid: 8413c4b59d720214e95a187cc3de332c,
         type: 2}
@@ -4288,7 +4287,7 @@ Prefab:
     - target: {fileID: 224000011623302928, guid: 2e7d9f5c2ae577f429034e6267c5ce16,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 168
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000011623302928, guid: 2e7d9f5c2ae577f429034e6267c5ce16,
         type: 2}

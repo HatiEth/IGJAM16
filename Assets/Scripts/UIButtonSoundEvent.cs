@@ -10,11 +10,11 @@
 
     public void OnPointerEnter(PointerEventData ped)
     {
-      Soundmanager.instance.RandomizeSfx(hoverSound);
+      //Soundmanager.instance.RandomizeSfx(hoverSound);
     }
 
     public void OnPointerDown(PointerEventData ped)
     {
-        Soundmanager.instance.RandomizeSfx(clickSound);
+        //Soundmanager.instance.RandomizeSfx(clickSound);
     }
 }

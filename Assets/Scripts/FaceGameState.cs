@@ -15,6 +15,12 @@ public class FaceGameState : MonoBehaviour {
 	public Transform PersonExitPosition;
 	public float PersonWalkDuration = 2.5f;
 
+	private AudioSource m_ASource;
+	public AudioClip SFX_Perfect;
+	public AudioClip SFX_Fail;
+
+	public Transform BoxCastOrigin;
+
 	public float HeartMeterStart;
 	public ReactiveProperty<float> m_pHeartMeter;
 	public float HeartMeter { get { return m_pHeartMeter.Value; } set { m_pHeartMeter.Value = value; } }
@@ -65,6 +71,7 @@ public class FaceGameState : MonoBehaviour {
 
 	private void Awake()
 	{
+		m_ASource = GetComponent<AudioSource>();
 		m_pPartyTimerS = new ReactiveProperty<float>(0f);
 
 		GeneratedAssociatedFaces();
@@ -102,7 +109,7 @@ public class FaceGameState : MonoBehaviour {
 
 	private int StayingPeopleCounter;
 
-	private IEnumerator Unknown(float minWaitTime, float maxWaitTime, IObserver<Person> observer)
+	private IEnumerator TakeUntilWalkwayFull(float minWaitTime, float maxWaitTime, IObserver<Person> observer)
 	{
 		while(PartyPeople.Count > StayingPeopleCounter)
 		{
@@ -114,6 +121,8 @@ public class FaceGameState : MonoBehaviour {
 		}
 		observer.OnCompleted();
 	}
+
+	RaycastHit2D[] BoxCastResults = new RaycastHit2D[32];
 
 	private void Start()
 	{
@@ -127,59 +136,13 @@ public class FaceGameState : MonoBehaviour {
 			;
 
 		var delaySelect = Observable
-			.FromCoroutine<Person>(observer => Unknown(0.75f, 1.5f, observer))
+			.FromCoroutine<Person>(observer => TakeUntilWalkwayFull(0.75f, 1.5f, observer))
 			.Do(p => MessageBroker.Default.Publish(new PersonReady { Person = p }))
 			.RepeatUntilDestroy(this);
 
 		delaySelect.Subscribe(x => PersonStream.OnNext(x)); // Add selected person to PersonStream
 
 
-		var SweetSpotEnters = SweetSpot
-			.OnTriggerEnter2DAsObservable()
-			.SelectMany(collider => MessageBroker.Default.Receive<PlayerChoosedExpression>().Select(expr => new { collider, expr }))
-			;
-		SweetSpotEnters.Subscribe(x =>
-		{
-			if(x.collider.gameObject.GetComponent<Person>().RequiredFaceExpression == x.expr.FacialExpression)
-			{
-
-			}
-		});
-																					/*
-		SelectNextPerson();
-		PersonStream.OnNext(CurrentPerson);
-		SelectNextPerson();
-		PersonStream.OnNext(CurrentPerson);
-		SelectNextPerson();
-		PersonStream.OnNext(CurrentPerson);	 
-																				*/
-																					// SelectNextPerson();
-																					/*
-																					var CoreLoop = PersonStream
-																						.SelectMany(person => GeneratePersonObservable(person))
-																						.Select(person => person.transform.position = PersonStartPosition.transform.position)
-																						.Do(_ => SelectNextPerson())
-																						.Do(_ => PersonStream.OnNext(CurrentPerson))
-																						;
-
-																					var InputLoop = MessageBroker.Default.Receive<PlayerChoosedExpression>().AsObservable() // wait for player input
-																						.Do(expr =>
-																						{
-																							if (CurrentPerson.RequiredFaceExpression == expr.FacialExpression)
-																							{
-																								Debug.Log("Hit Input");
-																							}
-																						})
-																						// @TODO: Start Question observable
-																						;
-
-																					InputLoop.Subscribe();
-
-																					var coreloop_cancel = CoreLoop.Subscribe();
-																					coreloop_cancel.AddTo(this.gameObject);
-
-																					PersonStream.OnNext(CurrentPerson);
-																					*/
 
 		// If Time <= 0 - we complete the person stream
 		// m_pPartyTimerS.Where(remainingTime => remainingTime < 0).Subscribe(_ => PersonStream.OnCompleted());
@@ -205,6 +168,35 @@ public class FaceGameState : MonoBehaviour {
 		
 
 		MessageBroker.Default.Publish(new PlayerChoosedExpression { FacialExpression = expression });
+
+
+		int hits = Physics2D.BoxCastNonAlloc(BoxCastOrigin.position, new Vector2(1.0f, 1.0f), 0f, Vector2.zero, BoxCastResults);
+		if (hits >= 0)
+		{
+			float Distance = float.MaxValue;
+			int idx = -1;
+			for (int i=0;i<hits;++i)
+			{
+				if(BoxCastResults[i].transform.GetComponent<Person>() && BoxCastResults[i].distance < Distance)
+				{
+					Distance = BoxCastResults[i].distance;
+					idx = i;
+				}
+			}
+			
+			if(idx != -1)
+			{
+				var person = BoxCastResults[idx].transform.GetComponent<Person>();
+				if(person.RequiredFaceExpression == expression)
+				{
+					m_ASource.PlayOneShot(SFX_Perfect);
+				}
+				else
+				{
+					m_ASource.PlayOneShot(SFX_Fail);
+				}
+			}
+		}
 	}
 
 	void Update()
