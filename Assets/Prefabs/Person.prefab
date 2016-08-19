@@ -84,8 +84,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010546686598}
   - 114: {fileID: 114000011037954928}
-  - 50: {fileID: 50000013577663098}
   - 60: {fileID: 60000014196264994}
+  - 50: {fileID: 50000011879566582}
+  - 60: {fileID: 60000011838944170}
   m_Layer: 0
   m_Name: Person
   m_TagString: Untagged
@@ -162,7 +163,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012798426028}
   m_RootOrder: 0
---- !u!50 &50000013577663098
+--- !u!50 &50000011879566582
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -174,11 +175,33 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!60 &60000011838944170
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012734669510}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.99368477, y: 2.095829}
+      - {x: 0.29438877, y: 2.864471}
+      - {x: 1.3802338, y: 2.2158875}
+      - {x: 1.6975985, y: 0.4463508}
+      - {x: 1.7260933, y: -0.416497}
+      - {x: 1.7970915, y: -2.493218}
+      - {x: -1.9223537, y: -2.457602}
+      - {x: -1.6183405, y: -0.33864117}
 --- !u!60 &60000014196264994
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -228,9 +251,21 @@ MonoBehaviour:
   - {fileID: 21300040, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   - {fileID: 21300042, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   - {fileID: 21300064, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300116, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300118, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300120, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300122, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   FacialTypes:
   - {fileID: 21300036, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   - {fileID: 21300038, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300098, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300100, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300102, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300104, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300106, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300108, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300110, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300112, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   BodyTypeSprites:
   - {fileID: 21300026, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
   - {fileID: 21300044, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
