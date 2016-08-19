@@ -291,7 +291,9 @@ public class FaceGameState : MonoBehaviour {
 					m_ASource.PlayOneShot(SFX_Fail);
 					MessageBroker.Default.Publish(new ExpressionMade
 					{
-						PlayerExpression = expression
+						PlayerExpression = expression,
+						WasFail = true,
+						RequiredExpression = person.RequiredFaceExpression
 					});
 				}
 			}
@@ -300,7 +302,7 @@ public class FaceGameState : MonoBehaviour {
 				m_ASource.PlayOneShot(SFX_Fail);
 				MessageBroker.Default.Publish(new ExpressionMade
 				{
-					PlayerExpression = expression
+					PlayerExpression = expression,
 				});
 			}
 		}

@@ -6,6 +6,8 @@ public class ExpressionMade {
 	public Person HitPerson = null;
 	public int CurrentCombo = 1;
 	public bool WasPerfect = false;
+	public bool WasFail = false;
+	public Faces RequiredExpression;
 
 	public bool WasMiss
 	{
