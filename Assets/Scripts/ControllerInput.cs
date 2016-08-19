@@ -27,5 +27,10 @@ public class ControllerInput : MonoBehaviour {
             ExecuteEvents.Execute<IPointerDownHandler>(buttons[3], new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
             ExecuteEvents.Execute<IPointerClickHandler>(buttons[3], new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
         }
+        else if (Input.GetKeyDown(KeyCode.Joystick1Button7) || Input.GetKeyDown(KeyCode.Return))
+        {
+            ExecuteEvents.Execute<IPointerDownHandler>(buttons[4], new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
+            ExecuteEvents.Execute<IPointerClickHandler>(buttons[4], new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
         }
+    }
 }
