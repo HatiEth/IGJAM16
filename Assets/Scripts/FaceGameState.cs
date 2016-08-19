@@ -196,6 +196,14 @@ public class FaceGameState : MonoBehaviour {
 					m_ASource.PlayOneShot(SFX_Fail);
 				}
 			}
+			else
+			{
+				m_ASource.PlayOneShot(SFX_Fail);
+			}
+		}
+		else
+		{
+			m_ASource.PlayOneShot(SFX_Fail);
 		}
 	}
 
