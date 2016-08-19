@@ -22,7 +22,7 @@ public class FaceGameState : MonoBehaviour {
 	public Transform BoxCastOrigin;
 	public Vector2 BoxCastSize = Vector2.one;
 
-	public float HeartMeterStart;
+	public float HeartMeterStart = 1f;
 	public ReactiveProperty<float> m_pHeartMeter;
 	public float HeartMeter { get { return m_pHeartMeter.Value; } set { m_pHeartMeter.Value = value; } }
 
@@ -76,6 +76,8 @@ public class FaceGameState : MonoBehaviour {
 	{
 		m_ASource = GetComponent<AudioSource>();
 		m_pPartyTimerS = new ReactiveProperty<float>(0f);
+
+		m_pHeartMeter = new ReactiveProperty<float>(HeartMeterStart);
 
 		m_pScore.Subscribe(score =>
 		{
@@ -152,6 +154,10 @@ public class FaceGameState : MonoBehaviour {
 
 		delaySelect.Subscribe(x => PersonStream.OnNext(x)); // Add selected person to PersonStream
 
+		m_pHeartMeter.Subscribe(heart =>
+		{
+			MessageBroker.Default.Publish(new HeartChanged { CurrentHeart = heart });
+		}).AddTo(this.gameObject);
 
 
 		// If Time <= 0 - we complete the person stream
@@ -202,6 +208,8 @@ public class FaceGameState : MonoBehaviour {
 					m_ASource.PlayOneShot(SFX_Perfect);
 					Score += ScorePerPerson * CurrentMultiplier;
 					++CurrentMultiplier;
+
+					HeartMeter = Mathf.Clamp01(HeartMeter + 0.3f);
 				}
 				else
 				{
@@ -225,6 +233,7 @@ public class FaceGameState : MonoBehaviour {
 	void Update()
 	{
 		PartyTimerS += Time.deltaTime;
+
 	}
 
 	public void OnDrawGizmosSelected()
