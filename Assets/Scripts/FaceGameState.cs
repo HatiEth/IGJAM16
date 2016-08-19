@@ -25,6 +25,7 @@ public class FaceGameState : MonoBehaviour {
 	public float HeartMeterStart = 1f;
 	public ReactiveProperty<float> m_pHeartMeter;
 	public float HeartMeter { get { return m_pHeartMeter.Value; } set { m_pHeartMeter.Value = value; } }
+	public float HeartMeterDrainPerSecond = .25f;
 
 	public GameObject PersonPrefab;
 	[Tooltip("Total number of other persons on party")]
@@ -233,6 +234,7 @@ public class FaceGameState : MonoBehaviour {
 	void Update()
 	{
 		PartyTimerS += Time.deltaTime;
+		HeartMeter -= HeartMeterDrainPerSecond * Time.deltaTime;
 
 	}
 
