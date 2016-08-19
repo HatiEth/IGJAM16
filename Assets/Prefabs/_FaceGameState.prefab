@@ -56,22 +56,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1000012086661210
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000013032442764}
-  - 58: {fileID: 58000011899836570}
-  m_Layer: 0
-  m_Name: Sweetspot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1000012535589848
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +102,6 @@ Transform:
   - {fileID: 4000014001058498}
   - {fileID: 4000011781988468}
   - {fileID: 4000014089981564}
-  - {fileID: 4000013032442764}
   - {fileID: 4000013718783444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -135,19 +118,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011718087504}
   m_RootOrder: 1
---- !u!4 &4000013032442764
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012086661210}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.83, y: 2.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4000011718087504}
-  m_RootOrder: 3
 --- !u!4 &4000013718783444
 Transform:
   m_ObjectHideFlags: 1
@@ -155,12 +125,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013925016338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.73, y: 2.98, z: 0}
+  m_LocalPosition: {x: 3.64, y: 3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011718087504}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &4000014001058498
 Transform:
   m_ObjectHideFlags: 1
@@ -187,20 +157,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011718087504}
   m_RootOrder: 2
---- !u!58 &58000011899836570
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012086661210}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.38
 --- !u!82 &82000011245042318
 AudioSource:
   m_ObjectHideFlags: 1
@@ -301,11 +257,13 @@ MonoBehaviour:
   SFX_Perfect: {fileID: 8300000, guid: f148dd0ce7b5ee04e8ee2eb451dd6ea0, type: 3}
   SFX_Fail: {fileID: 8300000, guid: 8cc2dbec23814ee418da356bc7b24cd6, type: 3}
   BoxCastOrigin: {fileID: 4000013718783444}
+  BoxCastSize: {x: 2.43, y: 3.41}
   HeartMeterStart: 0
   PersonPrefab: {fileID: 1000012734669510, guid: de242c5c9dc3b194eab5c57af6b8da43,
     type: 2}
   NumberOfPersons: 6
-  SweetSpot: {fileID: 4000013032442764}
   AssociatedFaces: 000000000000000000000000000000000000000000000000
   PartyPeople: []
   CurrentPerson: {fileID: 0}
+  CurrentMultiplier: 1
+  ScorePerPerson: 10

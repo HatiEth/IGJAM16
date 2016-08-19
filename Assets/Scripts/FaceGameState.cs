@@ -20,6 +20,7 @@ public class FaceGameState : MonoBehaviour {
 	public AudioClip SFX_Fail;
 
 	public Transform BoxCastOrigin;
+	public Vector2 BoxCastSize = Vector2.one;
 
 	public float HeartMeterStart;
 	public ReactiveProperty<float> m_pHeartMeter;
@@ -29,8 +30,6 @@ public class FaceGameState : MonoBehaviour {
 	[Tooltip("Total number of other persons on party")]
 	public int NumberOfPersons = 7;
 
-	[ReadOnlyDuringRun]
-	public Transform SweetSpot;
 
 	[ReadOnly]
 	public Faces[] AssociatedFaces = new Faces[System.Enum.GetNames(typeof(BodyTypes)).Length];
@@ -51,15 +50,19 @@ public class FaceGameState : MonoBehaviour {
 	public Subject<Person> PersonExited;
 	public Subject<Person> PersonQuestions;
 
+	public int CurrentMultiplier = 1;
+	public int ScorePerPerson = 10;
+	private ReactiveProperty<int> m_pScore = new ReactiveProperty<int>(0);
+	public int Score { get { return m_pScore.Value; } set { m_pScore.Value = value; } }
 
 	private void GeneratedAssociatedFaces()
 	{
 		var EnumValues = System.Enum.GetValues(typeof(Faces));
 		List<Faces> EnumValuesInt = new List<Faces>(EnumValues.OfType<Faces>());
 
-		for(int i=0;i<AssociatedFaces.Length;++i)
+		for (int i = 0; i < AssociatedFaces.Length; ++i)
 		{
-			if(EnumValuesInt.Count == 0)
+			if (EnumValuesInt.Count == 0)
 			{
 				EnumValuesInt = new List<Faces>(EnumValues.OfType<Faces>());
 			}
@@ -74,11 +77,16 @@ public class FaceGameState : MonoBehaviour {
 		m_ASource = GetComponent<AudioSource>();
 		m_pPartyTimerS = new ReactiveProperty<float>(0f);
 
+		m_pScore.Subscribe(score =>
+		{
+			MessageBroker.Default.Publish(new ScoreChanged { CurrentScore = score });
+		}).AddTo(this.gameObject);
+
 		GeneratedAssociatedFaces();
 
 
 		PartyPeople = new List<Person>(NumberOfPersons);
-		for(int i=0;i<NumberOfPersons;++i)
+		for (int i = 0; i < NumberOfPersons; ++i)
 		{
 			var PartyPersonGO = GameObject.Instantiate(PersonPrefab, PersonStartPosition.position, Quaternion.identity) as GameObject;
 			var p = PartyPersonGO.GetComponent<Person>();
@@ -111,7 +119,7 @@ public class FaceGameState : MonoBehaviour {
 
 	private IEnumerator TakeUntilWalkwayFull(float minWaitTime, float maxWaitTime, IObserver<Person> observer)
 	{
-		while(PartyPeople.Count > StayingPeopleCounter)
+		while (PartyPeople.Count > StayingPeopleCounter)
 		{
 			int PersonIdx = Random.Range(0, PartyPeople.Count - 1);
 			var p = PartyPeople.ElementAt(PersonIdx);
@@ -126,6 +134,8 @@ public class FaceGameState : MonoBehaviour {
 
 	private void Start()
 	{
+
+		Score = 0;
 		StayingPeopleCounter = NumberOfPersons - 1;
 		var MoveStream = PersonStream
 			.SelectMany((p) => MovePersonToExit(p))
@@ -165,50 +175,61 @@ public class FaceGameState : MonoBehaviour {
 
 	public void SelectYourExpression(Faces expression)
 	{
-		
+
 
 		MessageBroker.Default.Publish(new PlayerChoosedExpression { FacialExpression = expression });
 
 
-		int hits = Physics2D.BoxCastNonAlloc(BoxCastOrigin.position, new Vector2(1.0f, 1.0f), 0f, Vector2.zero, BoxCastResults);
+		int hits = Physics2D.BoxCastNonAlloc(BoxCastOrigin.position, BoxCastSize, 0f, Vector2.zero, BoxCastResults);
 		if (hits >= 0)
 		{
 			float Distance = float.MaxValue;
 			int idx = -1;
-			for (int i=0;i<hits;++i)
+			for (int i = 0; i < hits; ++i)
 			{
-				if(BoxCastResults[i].transform.GetComponent<Person>() && BoxCastResults[i].distance < Distance)
+				if (BoxCastResults[i].transform.GetComponent<Person>() && BoxCastResults[i].distance < Distance)
 				{
 					Distance = BoxCastResults[i].distance;
 					idx = i;
 				}
 			}
-			
-			if(idx != -1)
+
+			if (idx != -1)
 			{
 				var person = BoxCastResults[idx].transform.GetComponent<Person>();
-				if(person.RequiredFaceExpression == expression)
+				if (person.RequiredFaceExpression == expression)
 				{
 					m_ASource.PlayOneShot(SFX_Perfect);
+					Score += ScorePerPerson * CurrentMultiplier;
+					++CurrentMultiplier;
 				}
 				else
 				{
 					m_ASource.PlayOneShot(SFX_Fail);
+					CurrentMultiplier = 1;
 				}
 			}
 			else
 			{
 				m_ASource.PlayOneShot(SFX_Fail);
+				CurrentMultiplier = 1;
 			}
 		}
 		else
 		{
 			m_ASource.PlayOneShot(SFX_Fail);
+			CurrentMultiplier = 1;
 		}
 	}
 
 	void Update()
 	{
 		PartyTimerS += Time.deltaTime;
+	}
+
+	public void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawWireCube(BoxCastOrigin.position, BoxCastSize);
 	}
 }

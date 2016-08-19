@@ -1,15 +1,17 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UniRx;
 using UnityEngine.UI;
 using System.Collections;
 
 public class Score : MonoBehaviour {
+	private Text scoreText;
+	void Awake()
+	{
+		scoreText = GetComponent<Text>();
 
-    public Text scoreText;
-    public Text timeText;
-
-    public void UpdateScore(float score, float time)
-        {
-            scoreText.text = "" + score;
-            timeText.text = time + " seconds"; 
-        }
+		MessageBroker.Default.Receive<ScoreChanged>().Subscribe(msg =>
+		{
+			scoreText.text = "" + msg.CurrentScore;
+		}).AddTo(this.gameObject);
+	}
 }

@@ -55,6 +55,7 @@ GameObject:
   - 224: {fileID: 224000011547565972}
   - 222: {fileID: 222000011851300152}
   - 114: {fileID: 114000013379167518}
+  - 114: {fileID: 114000011811164558}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -72,6 +73,7 @@ GameObject:
   - 224: {fileID: 224000013285993086}
   - 222: {fileID: 222000010802128188}
   - 114: {fileID: 114000014173365468}
+  - 114: {fileID: 114000013833295462}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -88,7 +90,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000011296045886}
   - 222: {fileID: 222000010948587692}
-  - 114: {fileID: 114000012662709098}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -150,19 +151,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000012662709098
+--- !u!114 &114000011811164558
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013932278682}
+  m_GameObject: {fileID: 1000012348304636}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ec486cfeddbf80409755ba8128063d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 114000013379167518}
-  timeText: {fileID: 114000014173365468}
+  scoreText: {fileID: 0}
 --- !u!114 &114000013379167518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,6 +198,17 @@ MonoBehaviour:
   m_Text: '1337
 
 '
+--- !u!114 &114000013833295462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013207002872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edd125695e8dbd41954a6d6a0b0ab0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000014173365468
 MonoBehaviour:
   m_ObjectHideFlags: 1

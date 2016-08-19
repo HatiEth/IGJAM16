@@ -55,7 +55,7 @@ public class Person : MonoBehaviour {
 		float AlphaTime = 0f;
 		while (AlphaTime <= time)
 		{
-			GetComponent<Rigidbody2D>().MovePosition(startPosition + (target - startPosition) * PersonWalkAnimationProgress.Evaluate(Mathf.Clamp01(AlphaTime / time)));
+			transform.position = (startPosition + (target - startPosition) * PersonWalkAnimationProgress.Evaluate(Mathf.Clamp01(AlphaTime / time)));
 
 			yield return null;
 			AlphaTime += Time.deltaTime;
