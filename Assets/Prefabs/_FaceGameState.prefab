@@ -259,13 +259,18 @@ MonoBehaviour:
   BoxCastOrigin: {fileID: 4000013718783444}
   BoxCastSize: {x: 3.53, y: 4.64}
   HeartMeterStart: 0.7
-  HeartMeterDrainPerSecond: 0.1
+  HeartMeterDrainPerSecond: 0.05
+  HeartMeterForPerfect: 0.4
+  HeartMeterForGood: 0.3
+  DrainAddedPerIncrease: 0.02
+  MAX_HeartMeterDrain: 1
   PersonPrefab: {fileID: 1000012734669510, guid: de242c5c9dc3b194eab5c57af6b8da43,
     type: 2}
   NumberOfPersons: 6
   AssociatedFaces: 000000000000000000000000000000000000000000000000
   PartyPeople: []
   CurrentPerson: {fileID: 0}
+  IncreaseDifficultyAfterSeconds: 20
   CurrentMultiplier: 1
   ScorePerPerson: 10
-  PerfectSection: 0.2
+  PerfectSection: 0.261

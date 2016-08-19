@@ -37,11 +37,6 @@ public class Girlfriend : MonoBehaviour {
 				GirlfriendFacialImage.sprite = FacialExpressions[(int)msg.Person.RequiredFaceExpression];
 				GirlFriendBodyTypeImage.sprite = BodyTypeSprites[(int)msg.Person.CurrentBodyType];
 			}
-			else
-			{
-				StartCoroutine(FadeOut(FadeDuration));
-			}
-
 		}).AddTo(this.gameObject);
 	}
 
@@ -56,6 +51,9 @@ public class Girlfriend : MonoBehaviour {
 			yield return null;
 			AlphaTime += Time.deltaTime;
 		}
+
+		yield return new WaitForSeconds(1.5f);
+		yield return FadeOut(duration * 0.5f);
 	}
 
 	private IEnumerator FadeOut(float duration)

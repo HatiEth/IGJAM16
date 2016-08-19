@@ -19,6 +19,9 @@ public class Person : MonoBehaviour {
 	public Sprite[] BodyTypeSprites;
 
 	[ReadOnly]
+	public bool wasFaced = false;
+
+	[ReadOnly]
 	public int QuestionCount = 0;
 
 	[ReadOnly]
