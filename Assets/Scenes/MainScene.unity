@@ -2238,21 +2238,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011335340352, guid: 1e13f4ce193c4384ba48157b9ca1a33f,
-        type: 2}
-      propertyPath: BoxCastSize.x
-      value: 25.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011335340352, guid: 1e13f4ce193c4384ba48157b9ca1a33f,
-        type: 2}
-      propertyPath: PerfectSection
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011335340352, guid: 1e13f4ce193c4384ba48157b9ca1a33f,
-        type: 2}
-      propertyPath: GoodSection
-      value: 0.12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e13f4ce193c4384ba48157b9ca1a33f, type: 2}
   m_IsPrefabParent: 0

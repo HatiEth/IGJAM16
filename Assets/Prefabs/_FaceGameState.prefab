@@ -253,17 +253,17 @@ MonoBehaviour:
   - {r: 0.64090276, g: 0.39170632, b: 0.77205884, a: 1}
   PersonStartPosition: {fileID: 4000014089981564}
   PersonExitPosition: {fileID: 4000014001058498}
-  PersonWalkDuration: 5
+  PersonWalkDuration: 6
   SFX_Perfect: {fileID: 8300000, guid: f148dd0ce7b5ee04e8ee2eb451dd6ea0, type: 3}
   SFX_Fail: {fileID: 8300000, guid: 8cc2dbec23814ee418da356bc7b24cd6, type: 3}
   BoxCastOrigin: {fileID: 4000013718783444}
-  BoxCastSize: {x: 3.53, y: 4.64}
+  BoxCastSize: {x: 25.35, y: 4.64}
   HeartMeterStart: 0.7
-  HeartMeterDrainPerSecond: 0.05
+  HeartMeterDrainPerSecond: 0
   HeartMeterForPerfect: 0.4
   HeartMeterForGood: 0.3
-  DrainAddedPerIncrease: 0.02
-  MAX_HeartMeterDrain: 1
+  DrainAddedPerIncrease: 0.01
+  MAX_HeartMeterDrain: 0.3
   PersonPrefab: {fileID: 1000012734669510, guid: de242c5c9dc3b194eab5c57af6b8da43,
     type: 2}
   NumberOfPersons: 6
@@ -273,4 +273,5 @@ MonoBehaviour:
   IncreaseDifficultyAfterSeconds: 20
   CurrentMultiplier: 1
   ScorePerPerson: 10
-  PerfectSection: 0.261
+  GoodSection: 0.12
+  PerfectSection: 0.04

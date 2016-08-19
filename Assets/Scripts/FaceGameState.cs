@@ -76,6 +76,8 @@ public class FaceGameState : MonoBehaviour {
 	[Range(0f, 1f)]
 	public float PerfectSection = .2f;
 
+	private int EasyMode = 3;
+
 	private ReactiveProperty<int> m_pScore = new ReactiveProperty<int>(0);
 	public int Score { get { return m_pScore.Value; } set { m_pScore.Value = value; } }
 
@@ -168,7 +170,7 @@ public class FaceGameState : MonoBehaviour {
 			.Delay(System.TimeSpan.FromSeconds(0.25))
 			.Do(p => PartyPeople.Add(p))
 			.Do(p => p.transform.position = PersonStartPosition.position)
-			.Do(p => p.wasFaced = false)
+			.Do(p => p.WasFaced = false)
 			.Subscribe()
 			;
 
@@ -182,6 +184,10 @@ public class FaceGameState : MonoBehaviour {
 		m_pHeartMeter.Subscribe(heart =>
 		{
 			MessageBroker.Default.Publish(new HeartChanged { CurrentHeart = heart });
+			if(heart <= 0)
+			{
+				SceneManager.LoadScene("GameOverScene");
+			}
 		}).AddTo(this.gameObject);
 
 
@@ -192,6 +198,12 @@ public class FaceGameState : MonoBehaviour {
 			.RepeatUntilDestroy(this)
 			.Subscribe(_ =>
 			{
+				if(EasyMode>0)
+				{
+					++StayingPeopleCounter;
+					EasyMode--;
+				}
+
 				var PartyPersonGO = GameObject.Instantiate(PersonPrefab, PersonStartPosition.position, Quaternion.identity) as GameObject;
 				var p = PartyPersonGO.GetComponent<Person>();
 				PartyPeople.Add(p);
@@ -243,7 +255,7 @@ public class FaceGameState : MonoBehaviour {
 				if (person 
 					&& (BoxCastOrigin.position.x - person.transform.position.x) > 0 
 					&& (BoxCastOrigin.position.x - person.transform.position.x) < Distance // right most distance
-					&& !person.wasFaced
+					&& !person.WasFaced
 				)
 				{
 					Distance = BoxCastResults[i].distance;
@@ -256,7 +268,7 @@ public class FaceGameState : MonoBehaviour {
 				var person = BoxCastResults[idx].transform.GetComponent<Person>();
 				bool wasInside = Mathf.Abs(BoxCastOrigin.position.x - person.transform.position.x) < (BoxCastSize.x * GoodSection);
 
-				person.wasFaced = true;
+				person.WasFaced = true;
 
 				if (person.RequiredFaceExpression == expression && wasInside)
 				{
