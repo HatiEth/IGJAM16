@@ -235,16 +235,16 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 720ceea43425c8b44a305ebe2e337589, type: 3}
     m_FontSize: 34
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 41
-    m_Alignment: 0
+    m_MaxSize: 37
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I hate this
+  m_Text: This Party Sucks!
 --- !u!114 &114000013260230852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,6 +292,7 @@ MonoBehaviour:
   - I Hate Dates
   - Come Ooooon!
   - Ugh.
+  - This Party Sucks.
   Thought_Text: {fileID: 114000012934355218}
 --- !u!222 &222000010421732108
 CanvasRenderer:
@@ -428,10 +429,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 224000010507493464}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53.940002, y: 39.274994}
-  m_SizeDelta: {x: 53.480003, y: -19.35001}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0, y: -1.7}
+  m_SizeDelta: {x: 135.2, y: 51.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000014262185172
 RectTransform:
@@ -450,8 +451,8 @@ RectTransform:
   - {fileID: 224000010507493464}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.679, y: 0.6473074}
-  m_AnchorMax: {x: 0.679, y: 0.6473074}
-  m_AnchoredPosition: {x: -176.42, y: -69.8}
-  m_SizeDelta: {x: 100.68, y: 100}
-  m_Pivot: {x: 1, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -35.5, y: -13.8}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
