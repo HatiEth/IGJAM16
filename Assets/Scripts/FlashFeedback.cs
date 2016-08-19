@@ -12,6 +12,8 @@ public class FlashFeedback : MonoBehaviour {
     public ParticleSystem ScoreFX_GoodGO;
     public ParticleSystem ScoreFX_BadGO;
 
+    public ParticleSystem HeartsFX;
+
     [Header("Colors")]
     public Color Col_Start;
     public Color Col_Perfect = Color.green;
@@ -41,6 +43,8 @@ public class FlashFeedback : MonoBehaviour {
             if (inf.WasPerfect)
             {
                 ScoreFX_PerfectGO.Play();
+                HeartsFX.Play();
+
                 if (cor != null) StopCoroutine(cor);
 
                 cor = StartCoroutine(Fade(Col_Start, Col_Perfect, ImgToFlash));
@@ -48,6 +52,8 @@ public class FlashFeedback : MonoBehaviour {
             else
             {
                 ScoreFX_GoodGO.Play();
+                HeartsFX.Play();
+
                 if (cor != null) StopCoroutine(cor);
 
                 cor = StartCoroutine(Fade(Col_Start, Col_Good, ImgToFlash));

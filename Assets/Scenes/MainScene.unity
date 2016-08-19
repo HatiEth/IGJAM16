@@ -2745,6 +2745,7 @@ MonoBehaviour:
   ScoreFX_PerfectGO: {fileID: 1899035955}
   ScoreFX_GoodGO: {fileID: 501774442}
   ScoreFX_BadGO: {fileID: 1722303886}
+  HeartsFX: {fileID: 1951475596}
   Col_Start: {r: 0, g: 0, b: 0, a: 0}
   Col_Perfect: {r: 0.49179095, g: 0.9705882, b: 0.4282007, a: 1}
   Col_Good: {r: 0.58062875, g: 0.7352941, b: 0.40549305, a: 1}
@@ -4412,6 +4413,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1908430822}
+--- !u!198 &1951475596 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198000012317266374, guid: a0977e30c4eeed14582ebcc32d7db97e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1297937789}
 --- !u!1001 &1977151715
 Prefab:
   m_ObjectHideFlags: 0
