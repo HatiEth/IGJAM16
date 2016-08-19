@@ -40,6 +40,7 @@ GameObject:
   - 222: {fileID: 222000013059176846}
   - 114: {fileID: 114000012407039280}
   - 114: {fileID: 114000011069003504}
+  - 223: {fileID: 223000014147683360}
   m_Layer: 5
   m_Name: Speechbubble_GF
   m_TagString: Untagged
@@ -425,6 +426,25 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014202308794}
+--- !u!223 &223000014147683360
+Canvas:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010700507630}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_SortingLayerID: 1196962901
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!224 &224000011209004992
 RectTransform:
   m_ObjectHideFlags: 1
@@ -515,9 +535,9 @@ RectTransform:
   - {fileID: 224000014050647508}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -147.7, y: -24.35}
+  m_AnchorMin: {x: 0.39536208, y: 0.43338528}
+  m_AnchorMax: {x: 0.39536208, y: 0.43338528}
+  m_AnchoredPosition: {x: -19, y: -6.3500004}
   m_SizeDelta: {x: 419.8, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000014050647508
