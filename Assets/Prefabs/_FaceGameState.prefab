@@ -258,7 +258,8 @@ MonoBehaviour:
   SFX_Fail: {fileID: 8300000, guid: 8cc2dbec23814ee418da356bc7b24cd6, type: 3}
   BoxCastOrigin: {fileID: 4000013718783444}
   BoxCastSize: {x: 2.43, y: 3.41}
-  HeartMeterStart: 0
+  HeartMeterStart: 0.7
+  HeartMeterDrainPerSecond: 0.25
   PersonPrefab: {fileID: 1000012734669510, guid: de242c5c9dc3b194eab5c57af6b8da43,
     type: 2}
   NumberOfPersons: 6
