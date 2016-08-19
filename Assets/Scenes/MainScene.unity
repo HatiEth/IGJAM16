@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692552, g: 0.49678695, b: 0.5750854, a: 1}
+  m_IndirectSpecularColor: {r: 0.44688284, g: 0.49568552, b: 0.57304317, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ Prefab:
     - target: {fileID: 224000014262185172, guid: 63e09aaab6bb02843ab2631d6efefa29,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224000014262185172, guid: 63e09aaab6bb02843ab2631d6efefa29,
         type: 2}
@@ -1170,6 +1170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1457775894}
+  - {fileID: 1997771246}
   - {fileID: 1634396987}
   - {fileID: 1115472995}
   m_Father: {fileID: 1191478852}
@@ -1694,7 +1695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010700507630, guid: 2e59a48c31edd394ba28c143f452d2ab, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e59a48c31edd394ba28c143f452d2ab, type: 2}
@@ -3890,9 +3891,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 408995344}
-  - {fileID: 1997771246}
   m_Father: {fileID: 349182694}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4818,11 +4818,11 @@ RectTransform:
   m_GameObject: {fileID: 1997771245}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 820336343}
-  m_Father: {fileID: 1634396987}
+  m_Father: {fileID: 349182694}
   m_RootOrder: 1
   m_AnchorMin: {x: 0.39536208, y: 0.43338528}
   m_AnchorMax: {x: 0.39536208, y: 0.43338528}
@@ -4837,9 +4837,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1997771245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217573a8924c453439ea5745fb212930, type: 3}
+  m_Script: {fileID: 11500000, guid: 78ae79692ab07d940850a6897d472f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WaitForTime: 1.5
+  FadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: -0.78477
+      outSlope: -0.78477
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: -1.1739639
+      outSlope: -1.1739639
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!223 &1997771248
 Canvas:
   m_ObjectHideFlags: 0
