@@ -210,6 +210,8 @@ public class FaceGameState : MonoBehaviour {
 					Score += ScorePerPerson * CurrentMultiplier;
 					++CurrentMultiplier;
 
+					
+
 					HeartMeter = Mathf.Clamp01(HeartMeter + 0.3f);
 				}
 				else
