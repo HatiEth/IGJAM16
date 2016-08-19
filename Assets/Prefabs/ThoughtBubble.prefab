@@ -289,6 +289,9 @@ MonoBehaviour:
   - Go Home.
   - How Long?
   - This is Dumb
+  - I Hate Dates
+  - Come Ooooon!
+  - Ugh.
   Thought_Text: {fileID: 114000012934355218}
 --- !u!222 &222000010421732108
 CanvasRenderer:
@@ -449,6 +452,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35.55, y: -13.8}
+  m_AnchoredPosition: {x: -35.5, y: -13.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
