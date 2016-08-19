@@ -84,8 +84,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010546686598}
   - 114: {fileID: 114000011037954928}
-  - 60: {fileID: 60000014196264994}
-  - 50: {fileID: 50000011879566582}
   - 60: {fileID: 60000011838944170}
   m_Layer: 0
   m_Name: Person
@@ -163,23 +161,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012798426028}
   m_RootOrder: 0
---- !u!50 &50000011879566582
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012734669510}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!60 &60000011838944170
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -189,29 +170,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: -0.99368477, y: 2.095829}
-      - {x: 0.29438877, y: 2.864471}
-      - {x: 1.3802338, y: 2.2158875}
-      - {x: 1.6975985, y: 0.4463508}
-      - {x: 1.7260933, y: -0.416497}
-      - {x: 1.7970915, y: -2.493218}
-      - {x: -1.9223537, y: -2.457602}
-      - {x: -1.6183405, y: -0.33864117}
---- !u!60 &60000014196264994
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012734669510}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:

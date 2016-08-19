@@ -27,6 +27,10 @@ public class FaceGameState : MonoBehaviour {
 	public float HeartMeter { get { return m_pHeartMeter.Value; } set { m_pHeartMeter.Value = value; } }
 	public float HeartMeterDrainPerSecond = .25f;
 
+	public float HeartMeterForPerfect = 0.4f;
+	public float HeartMeterForGood = 0.3f;
+
+
 	public GameObject PersonPrefab;
 	[Tooltip("Total number of other persons on party")]
 	public int NumberOfPersons = 7;
@@ -53,6 +57,10 @@ public class FaceGameState : MonoBehaviour {
 
 	public int CurrentMultiplier = 1;
 	public int ScorePerPerson = 10;
+
+	[Range(0f, 1f)]
+	public float PerfectSection = .2f;
+
 	private ReactiveProperty<int> m_pScore = new ReactiveProperty<int>(0);
 	public int Score { get { return m_pScore.Value; } set { m_pScore.Value = value; } }
 
@@ -149,7 +157,7 @@ public class FaceGameState : MonoBehaviour {
 			;
 
 		var delaySelect = Observable
-			.FromCoroutine<Person>(observer => TakeUntilWalkwayFull(0.75f, 1.5f, observer))
+			.FromCoroutine<Person>(observer => TakeUntilWalkwayFull(0.25f, 0.75f, observer))
 			.Do(p => MessageBroker.Default.Publish(new PersonReady { Person = p }))
 			.RepeatUntilDestroy(this);
 
@@ -163,6 +171,14 @@ public class FaceGameState : MonoBehaviour {
 
 		// If Time <= 0 - we complete the person stream
 		// m_pPartyTimerS.Where(remainingTime => remainingTime < 0).Subscribe(_ => PersonStream.OnCompleted());
+
+		MessageBroker.Default.Receive<ExpressionMade>().Subscribe(msg =>
+		{
+			if(!msg.WasMiss)
+			{
+				HeartMeter = Mathf.Clamp01(HeartMeter + (msg.WasPerfect ? HeartMeterForPerfect : HeartMeterForGood));
+			}
+		}).AddTo(this.gameObject);
 	}
 
 	public void SelectNextPerson()
@@ -182,8 +198,6 @@ public class FaceGameState : MonoBehaviour {
 
 	public void SelectYourExpression(Faces expression)
 	{
-
-
 		MessageBroker.Default.Publish(new PlayerChoosedExpression { FacialExpression = expression });
 
 
@@ -210,26 +224,41 @@ public class FaceGameState : MonoBehaviour {
 					Score += ScorePerPerson * CurrentMultiplier;
 					++CurrentMultiplier;
 
-					
+					bool wasPerfect = Mathf.Abs(BoxCastOrigin.position.x - person.transform.position.x) < (BoxCastSize.x * PerfectSection);
 
-					HeartMeter = Mathf.Clamp01(HeartMeter + 0.3f);
+					MessageBroker.Default.Publish(new ExpressionMade
+					{
+						HitPerson = person,
+						CurrentCombo = CurrentMultiplier,
+						WasPerfect = wasPerfect,
+						PlayerExpression = expression
+					});
 				}
 				else
 				{
 					m_ASource.PlayOneShot(SFX_Fail);
-					CurrentMultiplier = 1;
+					MessageBroker.Default.Publish(new ExpressionMade
+					{
+						PlayerExpression = expression
+					});
 				}
 			}
 			else
 			{
 				m_ASource.PlayOneShot(SFX_Fail);
-				CurrentMultiplier = 1;
+				MessageBroker.Default.Publish(new ExpressionMade
+				{
+					PlayerExpression = expression
+				});
 			}
 		}
 		else
 		{
 			m_ASource.PlayOneShot(SFX_Fail);
-			CurrentMultiplier = 1;
+			MessageBroker.Default.Publish(new ExpressionMade
+			{
+				PlayerExpression = expression
+			});
 		}
 	}
 
@@ -244,5 +273,7 @@ public class FaceGameState : MonoBehaviour {
 	{
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawWireCube(BoxCastOrigin.position, BoxCastSize);
+		Gizmos.color = Color.green;
+		Gizmos.DrawCube(BoxCastOrigin.position, Vector2.Scale(BoxCastSize, new Vector2(PerfectSection, 1f)));
 	}
 }

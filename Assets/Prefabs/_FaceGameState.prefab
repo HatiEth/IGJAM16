@@ -125,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013925016338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.64, y: 3.8, z: 0}
+  m_LocalPosition: {x: 3.83, y: 3.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -257,9 +257,9 @@ MonoBehaviour:
   SFX_Perfect: {fileID: 8300000, guid: f148dd0ce7b5ee04e8ee2eb451dd6ea0, type: 3}
   SFX_Fail: {fileID: 8300000, guid: 8cc2dbec23814ee418da356bc7b24cd6, type: 3}
   BoxCastOrigin: {fileID: 4000013718783444}
-  BoxCastSize: {x: 2.43, y: 3.41}
+  BoxCastSize: {x: 3.53, y: 4.64}
   HeartMeterStart: 0.7
-  HeartMeterDrainPerSecond: 0.25
+  HeartMeterDrainPerSecond: 0.1
   PersonPrefab: {fileID: 1000012734669510, guid: de242c5c9dc3b194eab5c57af6b8da43,
     type: 2}
   NumberOfPersons: 6
@@ -268,3 +268,4 @@ MonoBehaviour:
   CurrentPerson: {fileID: 0}
   CurrentMultiplier: 1
   ScorePerPerson: 10
+  PerfectSection: 0.2
