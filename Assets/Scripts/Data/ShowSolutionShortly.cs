@@ -16,6 +16,8 @@ public class ShowSolutionShortly : MonoBehaviour {
 			if(msg.WasFail)
 			{
 				StartCoroutine(ShowSolution(msg.RequiredExpression, 0.5f));
+
+				ScreenShakeService.Instance.Amplify(0.2f);
 			}
 		}).AddTo(this.gameObject);
 	}
