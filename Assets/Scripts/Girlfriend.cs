@@ -13,12 +13,19 @@ public class Girlfriend : MonoBehaviour {
 	public Image GirlFriendBodyTypeImage;
 	public Sprite[] BodyTypeSprites = new Sprite[System.Enum.GetNames(typeof(BodyTypes)).Length];
 
+    public SpriteRenderer Face;
+
 	public AnimationCurve FadingCurve;
 	public float FadeDuration = 0.2f;
 
 	private HashSet<Faces> ExpressionTypes = new HashSet<Faces>();
 
-	bool HasMetType(Person p)
+    public Sprite AngryFace;
+    public Sprite HappyFace;
+    public Sprite NeutralFace;
+
+
+    bool HasMetType(Person p)
 	{
 		return ExpressionTypes.Contains(p.RequiredFaceExpression);
 	}
@@ -38,7 +45,25 @@ public class Girlfriend : MonoBehaviour {
 				GirlFriendBodyTypeImage.sprite = BodyTypeSprites[(int)msg.Person.CurrentBodyType];
 			}
 		}).AddTo(this.gameObject);
-	}
+
+        MessageBroker.Default.Receive<HeartChanged>().Subscribe(msg =>
+        {
+            Sprite f = NeutralFace;
+
+            if (msg.CurrentHeart > .6f)
+            {
+                f = HappyFace;
+            }
+            else if(msg.CurrentHeart < .4f)
+            {
+                f = AngryFace;
+            }
+
+            Face.sprite = f;
+
+
+        }).AddTo(this.gameObject);
+    }
 
 	private IEnumerator FadeIn(float duration)
 	{

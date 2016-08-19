@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UniRx;
 using System.Collections;
 
@@ -6,7 +7,8 @@ public class ShowSolutionShortly : MonoBehaviour {
 
 	public float WaitForTime = 1.5f;
 	public AnimationCurve FadeCurve;
-
+    public Image face;
+    public Sprite[] faces;
 	// Use this for initialization
 	void Start () {
 		this.transform.localScale = Vector3.zero;
@@ -18,7 +20,9 @@ public class ShowSolutionShortly : MonoBehaviour {
 				StartCoroutine(ShowSolution(msg.RequiredExpression, 0.5f));
 
 				ScreenShakeService.Instance.Amplify(0.2f);
-			}
+                face.sprite = faces[(int)msg.RequiredExpression];
+
+            }
 		}).AddTo(this.gameObject);
 	}
 	

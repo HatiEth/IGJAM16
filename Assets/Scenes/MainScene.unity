@@ -2277,6 +2277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f81ccaeaadd66a4393ffb8f040e138e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &832524865 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212000012426457012, guid: a0977e30c4eeed14582ebcc32d7db97e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1297937789}
 --- !u!1 &839204389
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,6 +3257,11 @@ Prefab:
       propertyPath: GirlFriendBodyTypeImage
       value: 
       objectReference: {fileID: 888800881}
+    - target: {fileID: 114000012387859896, guid: a0977e30c4eeed14582ebcc32d7db97e,
+        type: 2}
+      propertyPath: Face
+      value: 
+      objectReference: {fileID: 832524865}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0977e30c4eeed14582ebcc32d7db97e, type: 2}
   m_IsPrefabParent: 0
@@ -4925,6 +4935,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  face: {fileID: 412190513}
+  faces:
+  - {fileID: 21300092, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300058, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300054, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300094, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
 --- !u!223 &1997771248
 Canvas:
   m_ObjectHideFlags: 0
