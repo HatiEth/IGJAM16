@@ -67,6 +67,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010692253138}
+  - 114: {fileID: 114000010243226022}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -159,6 +160,25 @@ Transform:
   - {fileID: 4000010483292236}
   m_Father: {fileID: 4000010692253138}
   m_RootOrder: 1
+--- !u!114 &114000010243226022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011749275708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360accd4504851e43aa7c417216403b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerFaces:
+  - {fileID: 21300074, guid: 99b36a115c481124baf905c945e96f18, type: 3}
+  - {fileID: 21300076, guid: 99b36a115c481124baf905c945e96f18, type: 3}
+  - {fileID: 21300054, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  - {fileID: 21300006, guid: 99b36a115c481124baf905c945e96f18, type: 3}
+  - {fileID: 21300006, guid: 99b36a115c481124baf905c945e96f18, type: 3}
+  - {fileID: 21300094, guid: 96dd19fb3f1fa1d458012100275dc37d, type: 3}
+  FaceSpriteRenderer: {fileID: 212000010882216180}
 --- !u!212 &212000010734243596
 SpriteRenderer:
   m_ObjectHideFlags: 1
