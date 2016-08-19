@@ -31,7 +31,7 @@ public class FlashFeedback : MonoBehaviour {
 
         MessageBroker.Default.Receive<ExpressionMade>().Subscribe(inf =>
         {
-            if (inf.WasMiss || inf.HitPerson == null)
+            if (inf.WasMiss || inf.HitPerson == null || inf.PlayerExpression != inf.HitPerson.RequiredFaceExpression)
             {
                 
                 ScoreFX_BadGO.Play();
