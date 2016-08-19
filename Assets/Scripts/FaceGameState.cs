@@ -258,7 +258,7 @@ public class FaceGameState : MonoBehaviour {
 					&& !person.WasFaced
 				)
 				{
-					Distance = BoxCastResults[i].distance;
+					Distance = (BoxCastOrigin.position.x - person.transform.position.x);
 					idx = i;
 				}
 			}
