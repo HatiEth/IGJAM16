@@ -33,6 +33,7 @@ public class FlashFeedback : MonoBehaviour {
         {
             if (inf.WasMiss || inf.HitPerson == null)
             {
+                
                 ScoreFX_BadGO.Play();
 
                 if (cor != null) StopCoroutine(cor);
@@ -62,25 +63,6 @@ public class FlashFeedback : MonoBehaviour {
         }
         );
 
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            MessageBroker.Default.Publish<ExpressionMade>(new ExpressionMade { HitPerson = new Person(), WasPerfect = true });
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            MessageBroker.Default.Publish<ExpressionMade>(new ExpressionMade { HitPerson = null });
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            MessageBroker.Default.Publish<ExpressionMade>(new ExpressionMade { HitPerson = new Person() });
-        }
     }
 
     private IEnumerator Fade(Color FromCol, Color ToColor, Image img)
